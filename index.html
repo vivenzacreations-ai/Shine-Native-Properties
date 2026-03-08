@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Al-Abraq Interior | Premium Design Studio Srinagar</title>
-    <meta name="description" content="Transform your space with Al-Abraq Interior. Specializing in PVC ceilings, wall panels, UV marble sheets, and wooden flooring in Rathpora Eidgah, Srinagar.">
+    <title>Shine Native Properties | Premium Real Estate</title>
+    <meta name="description" content="Discover your dream home with Shine Native Properties. Browse our exclusive collection of 25 premium properties.">
     
     <!-- Premium Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,7 +16,7 @@
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
 
-    <!-- Tailwind Configuration -->
+    <!-- Tailwind Configuration based on provided color palette -->
     <script>
         tailwind.config = {
             theme: {
@@ -37,7 +37,7 @@
                             dark: '#B8A47E'
                         },
                         base: {
-                            bg: '#EBF5EC', // Light greenish-white
+                            bg: '#EBF5EC', // Light greenish-white background
                             surface: '#FFFFFF',
                         },
                         text: {
@@ -49,7 +49,6 @@
                     animation: {
                         'pulse-soft': 'pulseSoft 3s infinite',
                         'float': 'float 6s ease-in-out infinite',
-                        'fade-in': 'fadeIn 0.3s ease-out forwards',
                     },
                     keyframes: {
                         pulseSoft: {
@@ -59,10 +58,6 @@
                         float: {
                             '0%, 100%': { transform: 'translateY(0)' },
                             '50%': { transform: 'translateY(-10px)' }
-                        },
-                        fadeIn: {
-                            '0%': { opacity: '0', transform: 'translateY(10px) scale(0.95)' },
-                            '100%': { opacity: '1', transform: 'translateY(0) scale(1)' }
                         }
                     }
                 }
@@ -102,14 +97,14 @@
             to { transform: rotate(360deg); }
         }
 
-        /* --- LIGHT GLASSMORPHISM (Tailored for #EBF5EC) --- */
+        /* --- LIGHT GLASSMORPHISM --- */
         .brand-bar {
             background: #1F3D2B;
             color: #D6C5A3;
         }
 
         .liquid-glass-header {
-            background: rgba(255, 255, 255, 0.6);
+            background: rgba(255, 255, 255, 0.7);
             backdrop-filter: blur(16px) saturate(180%);
             -webkit-backdrop-filter: blur(16px) saturate(180%);
             border: 1px solid rgba(255, 255, 255, 0.8);
@@ -173,20 +168,25 @@
 
         /* --- CARDS & PANELS --- */
         .glass-panel {
-            background: rgba(255, 255, 255, 0.7);
+            background: rgba(255, 255, 255, 0.75);
             border: 1px solid rgba(255, 255, 255, 0.9);
             box-shadow: 0 8px 32px rgba(31, 61, 43, 0.05);
             backdrop-filter: blur(10px);
         }
 
-        .glass-pill {
-            background: rgba(31, 61, 43, 0.05);
-            border: 1px solid rgba(31, 61, 43, 0.1);
-            backdrop-filter: blur(8px);
-            color: #1F3D2B;
+        .property-card {
+            background: #FFFFFF;
+            border: 1px solid rgba(31, 61, 43, 0.08);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.03);
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
 
-        /* Faster Reveal Animations */
+        .property-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(31, 61, 43, 0.1);
+        }
+
+        /* Animations */
         .reveal {
             opacity: 0;
             transform: translateY(30px);
@@ -211,25 +211,25 @@
         ::-webkit-scrollbar-track { background: #EBF5EC; }
         ::-webkit-scrollbar-thumb { background: #D6C5A3; border-radius: 10px; }
         
-        .img-zoom-container { overflow: hidden; border-radius: 1rem; }
+        .img-zoom-container { overflow: hidden; }
         .img-zoom { transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
-        .img-zoom-container:hover .img-zoom { transform: scale(1.05); }
+        .img-zoom-container:hover .img-zoom { transform: scale(1.08); }
 
-        .faq-content {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.4s ease-out;
+        /* Custom Form Inputs */
+        .form-input {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid rgba(31, 61, 43, 0.15);
+            border-radius: 0.75rem;
+            padding: 1rem 1.25rem;
+            color: #1A1A1A;
+            transition: all 0.3s ease;
         }
-
-        /* Custom Modal Styles */
-        .modal-overlay {
-            background: rgba(20, 41, 28, 0.6);
-            backdrop-filter: blur(8px);
-        }
-        .modal-content {
-            background: rgba(255, 255, 255, 0.95);
-            border: 1px solid rgba(255, 255, 255, 0.5);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        .form-input:focus {
+            outline: none;
+            border-color: #1F3D2B;
+            box-shadow: 0 0 0 3px rgba(31, 61, 43, 0.1);
+            background: #FFFFFF;
         }
     </style>
 </head>
@@ -244,7 +244,7 @@
     <div class="fixed top-0 z-40 flex flex-col items-center w-full" id="main-header">
         <!-- Brand Tag Line -->
         <div class="w-full brand-bar text-center text-xs md:text-sm font-medium py-2 tracking-widest uppercase">
-            Al-Abraq Interior • Rathpora Eidgah, Srinagar
+            Shine Native Properties • Your Trusted Real Estate Partner
         </div>
 
         <!-- Main Nav -->
@@ -254,19 +254,19 @@
                     <!-- Logo -->
                     <a href="#" class="text-xl md:text-2xl font-bold font-serif text-primary flex items-center gap-3">
                         <div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-accent">
-                            <i data-lucide="layout-dashboard" class="w-5 h-5"></i>
+                            <i data-lucide="home" class="w-5 h-5"></i>
                         </div>
                         <div class="flex flex-col leading-none">
-                            <span class="tracking-wide">Al-Abraq</span>
-                            <span class="text-[0.65rem] tracking-[0.2em] text-muted font-sans font-medium uppercase mt-1">Interior Studio</span>
+                            <span class="tracking-wide">Shine Native</span>
+                            <span class="text-[0.65rem] tracking-[0.2em] text-muted font-sans font-medium uppercase mt-1">Properties</span>
                         </div>
                     </a>
 
                     <!-- Desktop Menu -->
-                    <nav class="hidden lg:flex space-x-8 text-text-main font-semibold text-sm tracking-wide">
-                        <a href="#portfolio" class="hover:text-primary hover:underline underline-offset-8 decoration-accent decoration-2 transition-all">Portfolio</a>
-                        <a href="#catalog" class="hover:text-primary hover:underline underline-offset-8 decoration-accent decoration-2 transition-all">Products Catalog</a>
-                        <a href="#services" class="hover:text-primary hover:underline underline-offset-8 decoration-accent decoration-2 transition-all">Services</a>
+                    <nav class="hidden lg:flex space-x-10 text-text-main font-semibold text-sm tracking-wide">
+                        <a href="#properties" class="hover:text-primary hover:underline underline-offset-8 decoration-accent decoration-2 transition-all">Properties</a>
+                        <a href="#why-us" class="hover:text-primary hover:underline underline-offset-8 decoration-accent decoration-2 transition-all">About Us</a>
+                        <a href="#enquiry" class="hover:text-primary hover:underline underline-offset-8 decoration-accent decoration-2 transition-all">Enquiry Form</a>
                         <a href="#contact" class="hover:text-primary hover:underline underline-offset-8 decoration-accent decoration-2 transition-all">Contact</a>
                     </nav>
 
@@ -288,20 +288,20 @@
             </button>
         </div>
         <div class="flex flex-col gap-6 flex-1">
-            <a href="#portfolio" class="mobile-link text-2xl font-serif text-primary hover:text-accent-dark transition-all duration-300 opacity-0 translate-x-4 border-b border-base-bg pb-4">Portfolio</a>
-            <a href="#catalog" class="mobile-link text-2xl font-serif text-primary hover:text-accent-dark transition-all duration-300 opacity-0 translate-x-4 border-b border-base-bg pb-4">Products Catalog</a>
-            <a href="#services" class="mobile-link text-2xl font-serif text-primary hover:text-accent-dark transition-all duration-300 opacity-0 translate-x-4 border-b border-base-bg pb-4">Services</a>
+            <a href="#properties" class="mobile-link text-2xl font-serif text-primary hover:text-accent-dark transition-all duration-300 opacity-0 translate-x-4 border-b border-base-bg pb-4">Properties</a>
+            <a href="#why-us" class="mobile-link text-2xl font-serif text-primary hover:text-accent-dark transition-all duration-300 opacity-0 translate-x-4 border-b border-base-bg pb-4">About Us</a>
+            <a href="#enquiry" class="mobile-link text-2xl font-serif text-primary hover:text-accent-dark transition-all duration-300 opacity-0 translate-x-4 border-b border-base-bg pb-4">Enquiry Form</a>
             <a href="#contact" class="mobile-link text-2xl font-serif text-primary hover:text-accent-dark transition-all duration-300 opacity-0 translate-x-4 border-b border-base-bg pb-4">Contact</a>
         </div>
         <div class="mt-auto bg-base-bg p-6 rounded-2xl">
             <p class="text-xs text-muted uppercase tracking-widest mb-3 font-semibold">Direct Contact</p>
-            <a href="tel:+919313818743" class="flex items-center gap-3 text-primary mb-4 font-medium hover:text-primary-dark transition-colors">
+            <a href="tel:+917574002531" class="flex items-center gap-3 text-primary mb-4 font-medium hover:text-primary-dark transition-colors">
                 <div class="w-8 h-8 rounded-full bg-white flex items-center justify-center shadow-sm">
                     <i data-lucide="phone" class="w-4 h-4"></i>
                 </div>
-                +91 93138 18743
+                +91 75740 02531
             </a>
-            <a href="https://wa.me/919313818743" target="_blank" class="w-full bg-[#25D366] text-white py-3.5 rounded-xl flex justify-center items-center gap-2 font-medium hover:bg-[#1DA851] transition-colors shadow-md">
+            <a href="https://wa.me/917574002531" target="_blank" class="w-full bg-[#25D366] text-white py-3.5 rounded-xl flex justify-center items-center gap-2 font-medium hover:bg-[#1DA851] transition-colors shadow-md">
                 <i data-lucide="message-circle" class="w-5 h-5"></i> WhatsApp Us
             </a>
         </div>
@@ -311,47 +311,47 @@
     <section class="relative min-h-[90vh] md:min-h-screen w-full flex items-center justify-center overflow-hidden pt-20">
         <!-- Background Image -->
         <div class="absolute inset-0 w-full h-full z-0">
-            <!-- Modern Interior Image -->
-            <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1920&q=80" alt="Luxury Interior" class="absolute inset-0 w-full h-full object-cover scale-105 animate-pulse-soft">
+            <!-- Luxury Real Estate Image -->
+            <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1920&q=80" alt="Luxury Real Estate" class="absolute inset-0 w-full h-full object-cover scale-105 animate-pulse-soft">
             <!-- Elegant Overlays -->
-            <div class="absolute inset-0 bg-primary/40 z-10 mix-blend-multiply"></div>
-            <div class="absolute inset-0 bg-gradient-to-t from-primary-dark/90 via-primary-dark/40 to-transparent z-10"></div>
+            <div class="absolute inset-0 bg-primary/50 z-10 mix-blend-multiply"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-primary-dark/95 via-primary-dark/50 to-transparent z-10"></div>
         </div>
 
         <div class="relative z-20 text-center px-4 max-w-5xl mx-auto hero-content w-full flex flex-col items-center justify-center" id="hero-content">
-            <span class="text-accent tracking-[0.3em] text-xs md:text-sm uppercase mb-4 block font-semibold drop-shadow-md">Elevate Your Living Space</span>
+            <span class="text-accent tracking-[0.3em] text-xs md:text-sm uppercase mb-4 block font-semibold drop-shadow-md">Welcome to Shine Native</span>
             <h1 class="text-4xl md:text-6xl lg:text-7xl font-serif mb-6 leading-tight text-white drop-shadow-2xl">
-                Masterpieces in <br>
-                <span class="text-gold-gradient italic font-light">Interior Design</span>
+                Discover Your <br>
+                <span class="text-gold-gradient italic font-light">Dream Property</span>
             </h1>
             <p class="text-base md:text-lg text-gray-200 font-light mb-10 max-w-2xl mx-auto drop-shadow-md">
-                Specializing in modern PVC ceilings, intricate wall panels, UV marble sheets, and luxury wooden flooring. Bringing your vision to life in Srinagar.
+                Browse our exclusive portfolio of <strong>25 premium properties</strong>. Whether you're looking for a luxury villa or a modern apartment, we have the perfect space for you.
             </p>
 
-            <!-- Estimate Generator Bar -->
+            <!-- Property Search Bar -->
             <div class="bg-white/10 backdrop-blur-md border border-white/20 p-2 md:p-3 rounded-2xl flex flex-col md:flex-row items-center gap-2 w-full max-w-4xl mx-auto shadow-2xl">
                 <div class="flex-1 w-full flex items-center bg-white/90 rounded-xl px-4 py-3.5 border border-transparent transition-colors duration-300 group">
-                    <i data-lucide="layers" class="text-primary w-5 h-5 mr-3 group-hover:scale-110 transition-transform"></i>
-                    <select id="service-select" class="bg-transparent border-none outline-none text-text-main w-full appearance-none cursor-pointer font-medium">
-                        <option value="" disabled selected>Select Service</option>
-                        <option value="PVC Ceiling">Modern PVC Ceiling</option>
-                        <option value="Wall Paneling">Wall Paneling & Louvers</option>
-                        <option value="UV Marble">UV Marble Sheets</option>
-                        <option value="Flooring">Wooden Flooring</option>
+                    <i data-lucide="map-pin" class="text-primary w-5 h-5 mr-3 group-hover:scale-110 transition-transform"></i>
+                    <select id="location-select" class="bg-transparent border-none outline-none text-text-main w-full appearance-none cursor-pointer font-medium">
+                        <option value="" disabled selected>Select Location</option>
+                        <option value="Downtown">Downtown Area</option>
+                        <option value="Suburbs">Suburbs</option>
+                        <option value="City Center">City Center</option>
+                        <option value="Waterfront">Waterfront</option>
                     </select>
                 </div>
                 <div class="flex-1 w-full flex items-center bg-white/90 rounded-xl px-4 py-3.5 border border-transparent transition-colors duration-300 group">
                     <i data-lucide="home" class="text-primary w-5 h-5 mr-3 group-hover:scale-110 transition-transform"></i>
-                    <select id="space-select" class="bg-transparent border-none outline-none text-text-main w-full appearance-none cursor-pointer font-medium">
-                        <option value="" disabled selected>Space Type</option>
-                        <option value="Living Room">Living Room</option>
-                        <option value="Bedroom">Bedroom</option>
-                        <option value="Commercial">Commercial/Office</option>
-                        <option value="Full House">Full House</option>
+                    <select id="type-select" class="bg-transparent border-none outline-none text-text-main w-full appearance-none cursor-pointer font-medium">
+                        <option value="" disabled selected>Property Type</option>
+                        <option value="Villa">Luxury Villa</option>
+                        <option value="Apartment">Modern Apartment</option>
+                        <option value="Commercial">Commercial Space</option>
+                        <option value="Plot">Land / Plot</option>
                     </select>
                 </div>
-                <button id="get-quote-btn" class="w-full md:w-auto bg-primary text-accent px-8 py-3.5 rounded-xl font-bold tracking-wide flex items-center justify-center gap-2 border border-primary hover:bg-primary-light hover:text-white transition-all duration-300 shadow-lg shrink-0">
-                    Get Free Quote <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                <button onclick="document.getElementById('properties').scrollIntoView({behavior: 'smooth'})" class="w-full md:w-auto bg-primary text-accent px-8 py-3.5 rounded-xl font-bold tracking-wide flex items-center justify-center gap-2 border border-primary hover:bg-primary-light hover:text-white transition-all duration-300 shadow-lg shrink-0">
+                    Find Properties <i data-lucide="search" class="w-4 h-4"></i>
                 </button>
             </div>
         </div>
@@ -361,257 +361,297 @@
     <section id="why-us" class="py-24 relative">
         <div class="max-w-7xl mx-auto px-6 md:px-12">
             <div class="text-center mb-16 reveal">
-                <span class="text-primary text-xs tracking-[0.2em] uppercase mb-4 block font-bold">The Al-Abraq Standard</span>
-                <h2 class="text-4xl md:text-5xl font-serif text-text-main">Craftsmanship Meets Quality</h2>
+                <span class="text-primary text-xs tracking-[0.2em] uppercase mb-4 block font-bold">Why Shine Native</span>
+                <h2 class="text-4xl md:text-5xl font-serif text-text-main">A Seamless Real Estate Experience</h2>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 <!-- Feature 1 -->
                 <div class="p-8 glass-panel rounded-2xl hover:bg-white transition-colors duration-300 reveal text-center group">
                     <div class="w-16 h-16 mx-auto rounded-full bg-base-bg flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-primary transition-all duration-300">
-                        <i data-lucide="check-circle" class="text-primary group-hover:text-accent w-7 h-7"></i>
+                        <i data-lucide="shield-check" class="text-primary group-hover:text-accent w-7 h-7"></i>
                     </div>
-                    <h3 class="text-xl font-serif mb-3 text-primary">Premium Materials</h3>
-                    <p class="text-text-muted text-sm leading-relaxed">Imported UV marble sheets, highly durable WPC louvers, and A-grade PVC panels.</p>
+                    <h3 class="text-xl font-serif mb-3 text-primary">Verified Listings</h3>
+                    <p class="text-text-muted text-sm leading-relaxed">Every property in our portfolio is thoroughly vetted for legal and structural integrity.</p>
                 </div>
                 <!-- Feature 2 -->
                 <div class="p-8 glass-panel rounded-2xl hover:bg-white transition-colors duration-300 reveal reveal-delay-1 text-center group">
                     <div class="w-16 h-16 mx-auto rounded-full bg-base-bg flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-primary transition-all duration-300">
-                        <i data-lucide="pen-tool" class="text-primary group-hover:text-accent w-7 h-7"></i>
+                        <i data-lucide="gem" class="text-primary group-hover:text-accent w-7 h-7"></i>
                     </div>
-                    <h3 class="text-xl font-serif mb-3 text-primary">Custom Designs</h3>
-                    <p class="text-text-muted text-sm leading-relaxed">From intricate back-lit ceiling cutouts to seamless fluted wall patterns tailored to you.</p>
+                    <h3 class="text-xl font-serif mb-3 text-primary">Exclusive Portfolio</h3>
+                    <p class="text-text-muted text-sm leading-relaxed">Access to 25 premium, handpicked properties that you won't find anywhere else.</p>
                 </div>
                 <!-- Feature 3 -->
                 <div class="p-8 glass-panel rounded-2xl hover:bg-white transition-colors duration-300 reveal reveal-delay-2 text-center group">
                     <div class="w-16 h-16 mx-auto rounded-full bg-base-bg flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-primary transition-all duration-300">
-                        <i data-lucide="hammer" class="text-primary group-hover:text-accent w-7 h-7"></i>
+                        <i data-lucide="users" class="text-primary group-hover:text-accent w-7 h-7"></i>
                     </div>
-                    <h3 class="text-xl font-serif mb-3 text-primary">Expert Installation</h3>
-                    <p class="text-text-muted text-sm leading-relaxed">Flawless execution by our skilled artisans ensuring longevity and a perfect finish.</p>
+                    <h3 class="text-xl font-serif mb-3 text-primary">Expert Guidance</h3>
+                    <p class="text-text-muted text-sm leading-relaxed">Our seasoned agents guide you through every step, from viewing to closing the deal.</p>
                 </div>
                 <!-- Feature 4 -->
                 <div class="p-8 glass-panel rounded-2xl hover:bg-white transition-colors duration-300 reveal reveal-delay-3 text-center group">
                     <div class="w-16 h-16 mx-auto rounded-full bg-base-bg flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-primary transition-all duration-300">
-                        <i data-lucide="map-pin" class="text-primary group-hover:text-accent w-7 h-7"></i>
+                        <i data-lucide="key" class="text-primary group-hover:text-accent w-7 h-7"></i>
                     </div>
-                    <h3 class="text-xl font-serif mb-3 text-primary">Local Excellence</h3>
-                    <p class="text-text-muted text-sm leading-relaxed">Based in Rathpora Eidgah, we bring top-tier interior solutions directly to Srinagar homes.</p>
+                    <h3 class="text-xl font-serif mb-3 text-primary">Smooth Handovers</h3>
+                    <p class="text-text-muted text-sm leading-relaxed">We ensure a hassle-free paperwork process so you can move into your new home faster.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- PORTFOLIO / FEATURED PRODUCTS -->
-    <section id="portfolio" class="py-24 bg-white relative border-t border-primary/5">
+    <!-- PROPERTY LISTINGS -->
+    <section id="properties" class="py-24 bg-white relative border-t border-primary/5">
         <div class="max-w-7xl mx-auto px-6 md:px-12">
             <div class="flex flex-col md:flex-row justify-between items-end mb-16 reveal gap-6">
                 <div>
-                    <span class="text-primary text-xs tracking-[0.2em] uppercase mb-4 block font-bold">Our Masterpieces</span>
-                    <h2 class="text-4xl md:text-5xl font-serif text-text-main">Featured Work</h2>
+                    <span class="text-primary text-xs tracking-[0.2em] uppercase mb-4 block font-bold">Our Collection</span>
+                    <h2 class="text-4xl md:text-5xl font-serif text-text-main">Featured Properties</h2>
                 </div>
-                <a href="#catalog" class="text-primary font-semibold hover:text-accent-dark transition-colors flex items-center gap-2 pb-2">
-                    Browse All 25 Materials <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                </a>
+                <button onclick="window.open('https://wa.me/917574002531?text=Hi,%20I%20would%20like%20to%20see%20the%20complete%20list%20of%20all%2025%20properties.', '_blank')" class="text-primary font-semibold hover:text-accent-dark transition-colors flex items-center gap-2 pb-2">
+                    View All 25 Properties <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                </button>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Project 1 (Large) -->
-                <div class="lg:col-span-2 relative h-[500px] rounded-3xl img-zoom-container reveal group shadow-xl">
-                    <img src="https://images.unsplash.com/photo-1600607688969-a5bfcd646154?auto=format&fit=crop&w=1200&q=80" loading="lazy" alt="Modern False Ceiling" class="w-full h-full object-cover img-zoom">
-                    <div class="absolute inset-0 bg-gradient-to-t from-primary-dark/90 via-primary-dark/20 to-transparent opacity-80 transition-opacity duration-300 group-hover:opacity-100"></div>
-                    <div class="absolute inset-0 p-8 flex flex-col justify-end">
-                        <div class="flex justify-between items-end">
-                            <div>
-                                <span class="bg-accent text-primary-dark text-xs px-4 py-1.5 rounded-full mb-4 inline-block font-bold tracking-wide">Signature Ceilings</span>
-                                <h3 class="text-3xl font-serif mb-2 text-white">Illuminated PVC Ceilings</h3>
-                                <p class="text-gray-200 max-w-md text-sm leading-relaxed mb-6">Custom-crafted false ceilings featuring intricate backlit patterns, modern geometry, and premium wood-finish PVC panels.</p>
-                            </div>
+                
+                <!-- Property 1 -->
+                <div class="property-card rounded-3xl overflow-hidden reveal flex flex-col">
+                    <div class="relative h-64 img-zoom-container">
+                        <img src="https://images.unsplash.com/photo-1600607686527-6fb886090705?auto=format&fit=crop&w=800&q=80" loading="lazy" alt="Luxury Villa" class="w-full h-full object-cover img-zoom">
+                        <div class="absolute top-4 left-4 bg-primary text-accent text-xs font-bold px-3 py-1.5 rounded-md tracking-wider uppercase">
+                            For Sale
                         </div>
-                        <div class="mt-auto">
-                            <button onclick="openInquiryModal('Illuminated PVC Ceilings')" class="bg-white/20 backdrop-blur-md border border-white/40 px-6 py-2.5 rounded-full text-sm font-medium text-white hover:bg-white hover:text-primary transition-all duration-300 flex items-center gap-2 w-fit">
-                                <i data-lucide="message-circle" class="w-4 h-4"></i> Inquire Now
-                            </button>
+                        <div class="absolute bottom-4 right-4 bg-white/90 backdrop-blur-sm text-primary-dark font-bold px-4 py-2 rounded-lg shadow-lg">
+                            $1,250,000
                         </div>
                     </div>
-                </div>
-
-                <!-- Project 2 -->
-                <div class="relative h-[500px] rounded-3xl img-zoom-container reveal reveal-delay-1 group shadow-xl">
-                    <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=800&q=80" loading="lazy" alt="Wall Paneling" class="w-full h-full object-cover img-zoom">
-                    <div class="absolute inset-0 bg-gradient-to-t from-primary-dark/90 via-primary-dark/20 to-transparent opacity-80 transition-opacity duration-300 group-hover:opacity-100"></div>
-                    <div class="absolute inset-0 p-8 flex flex-col justify-end">
-                        <span class="bg-accent text-primary-dark text-xs px-4 py-1.5 rounded-full mb-4 w-fit font-bold tracking-wide">Wall Aesthetics</span>
-                        <h3 class="text-2xl font-serif mb-2 text-white">UV Marble & Louvers</h3>
-                        <p class="text-gray-200 text-sm mb-6">Transform plain walls with high-gloss UV marble sheets and textured WPC fluted panels.</p>
-                        <button onclick="openInquiryModal('UV Marble & Louvers')" class="bg-white/20 backdrop-blur-md border border-white/40 px-6 py-2.5 rounded-full text-sm font-medium text-white hover:bg-white hover:text-primary transition-all duration-300 flex items-center gap-2 w-fit">
-                            <i data-lucide="message-circle" class="w-4 h-4"></i> Inquire Now
+                    <div class="p-6 flex flex-col flex-1">
+                        <h3 class="text-2xl font-serif text-primary mb-2">The Grand Oasis Villa</h3>
+                        <p class="text-text-muted flex items-center gap-1.5 text-sm mb-4">
+                            <i data-lucide="map-pin" class="w-4 h-4 text-accent-dark"></i> Beverly Hills, CA
+                        </p>
+                        <div class="flex items-center justify-between border-t border-b border-gray-100 py-4 mb-6 mt-auto">
+                            <div class="flex items-center gap-2 text-sm text-gray-600 font-medium">
+                                <i data-lucide="bed" class="w-4 h-4 text-primary"></i> 4 Beds
+                            </div>
+                            <div class="flex items-center gap-2 text-sm text-gray-600 font-medium">
+                                <i data-lucide="bath" class="w-4 h-4 text-primary"></i> 3 Baths
+                            </div>
+                            <div class="flex items-center gap-2 text-sm text-gray-600 font-medium">
+                                <i data-lucide="square" class="w-4 h-4 text-primary"></i> 3,200 sqft
+                            </div>
+                        </div>
+                        <button onclick="openPropertyWA('The Grand Oasis Villa')" class="w-full bg-base-bg text-primary border border-primary/20 py-3 rounded-xl font-semibold hover:bg-primary hover:text-accent transition-colors flex justify-center items-center gap-2">
+                            <i data-lucide="info" class="w-4 h-4"></i> Inquire Details
                         </button>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- CATALOG / 25 PRODUCTS SECTION -->
-    <section id="catalog" class="py-24 relative bg-base-bg border-t border-primary/10">
-        <div class="max-w-7xl mx-auto px-6 md:px-12">
-            <div class="text-center mb-16 reveal">
-                <span class="text-primary text-xs tracking-[0.2em] uppercase mb-4 block font-bold">Comprehensive Materials</span>
-                <h2 class="text-4xl md:text-5xl font-serif text-text-main mb-4">Complete Product Catalog</h2>
-                <p class="text-text-muted max-w-2xl mx-auto">Explore our range of 25 premium interior materials. Listed prices are starting estimates (in INR) and may vary based on exact specifications.</p>
-            </div>
-
-            <!-- Product Grid -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6">
-                
-                <!-- Product Items Generated from Catalog Request -->
-                <script>
-                    const products = [
-                        { name: "Standard PVC Ceiling", price: "₹55.00 - ₹85.00 / sq.ft" },
-                        { name: "Premium PVC Ceiling", price: "₹75.00 - ₹90.00 / sq.ft" },
-                        { name: "Al-Abraq Signature PVC", price: "₹60.00 - ₹85.00 / sq.ft" },
-                        { name: "Al-Abraq Luxury Panels", price: "₹85.00 - ₹120.00 / sq.ft" },
-                        { name: "Customized Carpets", price: "₹35.00 - ₹95.00 / sq.ft" },
-                        { name: "Al-Abraq Wall Panels", price: "₹65.00 - ₹110.00 / sq.ft" },
-                        { name: "Decorative Wall Panel", price: "₹50.00 - ₹85.00 / sq.ft" },
-                        { name: "PVC Fall Ceiling Standard", price: "₹60.00 - ₹95.00 / sq.ft" },
-                        { name: "Al-Abraq Royal PVC Ceiling", price: "₹80.00 - ₹130.00 / sq.ft" },
-                        { name: "UV Marble Sheet (Basic)", price: "₹1200 - ₹1800 / sheet" },
-                        { name: "Wooden Flooring (AC-3)", price: "₹65.00 - ₹95.00 / sq.ft" },
-                        { name: "Seamless PVC Wall Panels", price: "₹55.00 - ₹80.00 / sq.ft" },
-                        { name: "Waterproof WPC Flooring", price: "₹90.00 - ₹140.00 / sq.ft" },
-                        { name: "Standard WPC Louvers", price: "₹75.00 - ₹110.00 / sq.ft" },
-                        { name: "Fluted WPC Panels", price: "₹85.00 - ₹125.00 / sq.ft" },
-                        { name: "Charcoal Decorative Panels", price: "₹95.00 - ₹150.00 / sq.ft" },
-                        { name: "Matte Finish AC-4 Flooring", price: "₹85.00 - ₹130.00 / sq.ft" },
-                        { name: "WPC Silk Louvers", price: "₹90.00 - ₹145.00 / sq.ft" },
-                        { name: "UV Marble Sheet 4x10", price: "₹1800 - ₹2800 / sheet" },
-                        { name: "Fluted Louver Panels 12\"", price: "₹80.00 - ₹120.00 / sq.ft" },
-                        { name: "Designer Fluted Panels", price: "₹95.00 - ₹140.00 / sq.ft" },
-                        { name: "UV Marble Sheet 8x4", price: "₹1400 - ₹2200 / sheet" },
-                        { name: "Glossy UV Tiles 8x4", price: "₹1500 - ₹2500 / sheet" },
-                        { name: "Imported PVC Paneling", price: "₹70.00 - ₹115.00 / sq.ft" },
-                        { name: "Luxury Customized Wallpaper", price: "₹45.00 - ₹100.00 / sq.ft" }
-                    ];
-
-                    products.forEach((prod, index) => {
-                        let delay = (index % 5) * 0.1;
-                        document.write(`
-                            <div class="glass-panel p-5 rounded-2xl hover:-translate-y-1 transition-transform duration-300 reveal border border-white/50 group shadow-sm flex flex-col h-full" style="transition-delay: ${delay}s">
-                                <div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary transition-colors duration-300">
-                                    <i data-lucide="box" class="w-5 h-5 text-primary group-hover:text-accent transition-colors duration-300"></i>
-                                </div>
-                                <h3 class="text-md font-bold text-primary mb-1">${prod.name}</h3>
-                                <p class="text-sm font-semibold text-text-muted mb-6">${prod.price}</p>
-                                <button onclick="openInquiryModal('${prod.name}')" class="mt-auto w-full py-2.5 rounded-xl border border-primary/20 text-primary text-sm font-semibold hover:bg-primary hover:text-accent transition-colors duration-300">
-                                    Inquire Now
-                                </button>
+                <!-- Property 2 -->
+                <div class="property-card rounded-3xl overflow-hidden reveal reveal-delay-1 flex flex-col">
+                    <div class="relative h-64 img-zoom-container">
+                        <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80" loading="lazy" alt="Modern Apartment" class="w-full h-full object-cover img-zoom">
+                        <div class="absolute top-4 left-4 bg-primary text-accent text-xs font-bold px-3 py-1.5 rounded-md tracking-wider uppercase">
+                            For Sale
+                        </div>
+                        <div class="absolute bottom-4 right-4 bg-white/90 backdrop-blur-sm text-primary-dark font-bold px-4 py-2 rounded-lg shadow-lg">
+                            $850,000
+                        </div>
+                    </div>
+                    <div class="p-6 flex flex-col flex-1">
+                        <h3 class="text-2xl font-serif text-primary mb-2">Skyline View Penthouse</h3>
+                        <p class="text-text-muted flex items-center gap-1.5 text-sm mb-4">
+                            <i data-lucide="map-pin" class="w-4 h-4 text-accent-dark"></i> Downtown Metro
+                        </p>
+                        <div class="flex items-center justify-between border-t border-b border-gray-100 py-4 mb-6 mt-auto">
+                            <div class="flex items-center gap-2 text-sm text-gray-600 font-medium">
+                                <i data-lucide="bed" class="w-4 h-4 text-primary"></i> 3 Beds
                             </div>
-                        `);
-                    });
-                </script>
+                            <div class="flex items-center gap-2 text-sm text-gray-600 font-medium">
+                                <i data-lucide="bath" class="w-4 h-4 text-primary"></i> 2 Baths
+                            </div>
+                            <div class="flex items-center gap-2 text-sm text-gray-600 font-medium">
+                                <i data-lucide="square" class="w-4 h-4 text-primary"></i> 2,100 sqft
+                            </div>
+                        </div>
+                        <button onclick="openPropertyWA('Skyline View Penthouse')" class="w-full bg-base-bg text-primary border border-primary/20 py-3 rounded-xl font-semibold hover:bg-primary hover:text-accent transition-colors flex justify-center items-center gap-2">
+                            <i data-lucide="info" class="w-4 h-4"></i> Inquire Details
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Property 3 -->
+                <div class="property-card rounded-3xl overflow-hidden reveal reveal-delay-2 flex flex-col">
+                    <div class="relative h-64 img-zoom-container">
+                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80" loading="lazy" alt="Suburban Home" class="w-full h-full object-cover img-zoom">
+                        <div class="absolute top-4 left-4 bg-primary text-accent text-xs font-bold px-3 py-1.5 rounded-md tracking-wider uppercase">
+                            Just Listed
+                        </div>
+                        <div class="absolute bottom-4 right-4 bg-white/90 backdrop-blur-sm text-primary-dark font-bold px-4 py-2 rounded-lg shadow-lg">
+                            $595,000
+                        </div>
+                    </div>
+                    <div class="p-6 flex flex-col flex-1">
+                        <h3 class="text-2xl font-serif text-primary mb-2">Maple Wood Estate</h3>
+                        <p class="text-text-muted flex items-center gap-1.5 text-sm mb-4">
+                            <i data-lucide="map-pin" class="w-4 h-4 text-accent-dark"></i> Quiet Suburbs
+                        </p>
+                        <div class="flex items-center justify-between border-t border-b border-gray-100 py-4 mb-6 mt-auto">
+                            <div class="flex items-center gap-2 text-sm text-gray-600 font-medium">
+                                <i data-lucide="bed" class="w-4 h-4 text-primary"></i> 4 Beds
+                            </div>
+                            <div class="flex items-center gap-2 text-sm text-gray-600 font-medium">
+                                <i data-lucide="bath" class="w-4 h-4 text-primary"></i> 3.5 Baths
+                            </div>
+                            <div class="flex items-center gap-2 text-sm text-gray-600 font-medium">
+                                <i data-lucide="square" class="w-4 h-4 text-primary"></i> 2,800 sqft
+                            </div>
+                        </div>
+                        <button onclick="openPropertyWA('Maple Wood Estate')" class="w-full bg-base-bg text-primary border border-primary/20 py-3 rounded-xl font-semibold hover:bg-primary hover:text-accent transition-colors flex justify-center items-center gap-2">
+                            <i data-lucide="info" class="w-4 h-4"></i> Inquire Details
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+            
+            <div class="mt-12 text-center reveal">
+                <button onclick="window.open('https://wa.me/917574002531?text=Hi,%20I%20want%20to%20explore%20more%20properties.', '_blank')" class="bg-primary text-accent px-10 py-4 rounded-xl font-bold tracking-wide inline-flex items-center justify-center gap-2 border border-primary hover:bg-primary-light hover:text-white transition-all duration-300 shadow-xl">
+                    Explore All 25 Properties <i data-lucide="layout-grid" class="w-5 h-5"></i>
+                </button>
             </div>
         </div>
     </section>
 
-    <!-- SERVICES -->
-    <section id="services" class="py-24 relative bg-white border-t border-primary/5">
-        <div class="max-w-7xl mx-auto px-6 md:px-12">
-            <div class="text-center mb-16 reveal">
-                <span class="text-primary text-xs tracking-[0.2em] uppercase mb-4 block font-bold">What We Do</span>
-                <h2 class="text-4xl md:text-5xl font-serif text-text-main">Our Expertise</h2>
-            </div>
+    <!-- ENQUIRY FORM SECTION -->
+    <section id="enquiry" class="py-24 relative overflow-hidden">
+        <!-- Background Elements -->
+        <div class="absolute top-0 right-0 w-1/2 h-full bg-white opacity-40 -skew-x-12 transform origin-top-right z-0"></div>
+        <div class="absolute -bottom-32 -left-32 w-96 h-96 bg-accent rounded-full blur-3xl opacity-20 pointer-events-none z-0"></div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Service 1 -->
-                <div class="glass-panel p-3 rounded-3xl hover:-translate-y-2 transition-transform duration-300 reveal group bg-base-bg/30">
-                    <div class="img-zoom-container rounded-2xl h-64 mb-6">
-                        <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=800&q=80" loading="lazy" alt="Residential" class="w-full h-full object-cover img-zoom">
-                    </div>
-                    <div class="px-4 pb-6 text-center">
-                        <h3 class="text-xl font-serif mb-3 text-primary">Residential Interiors</h3>
-                        <p class="text-text-muted text-sm leading-relaxed">Elevate your living room, bedrooms, and hallways with custom ceilings and elegant wall treatments designed for comfort.</p>
+        <div class="max-w-5xl mx-auto px-6 relative z-10">
+            <div class="bg-white/60 backdrop-blur-xl border border-white p-8 md:p-12 rounded-3xl shadow-2xl flex flex-col md:flex-row gap-12 items-center reveal">
+                
+                <!-- Info Side -->
+                <div class="w-full md:w-5/12">
+                    <span class="text-primary text-xs tracking-[0.2em] uppercase mb-4 block font-bold">Get In Touch</span>
+                    <h2 class="text-4xl font-serif text-text-main mb-6">Let's Find Your Next Home</h2>
+                    <p class="text-text-muted mb-8 leading-relaxed">
+                        Fill out the enquiry form with your requirements. Our real estate experts will get back to you immediately with tailored property options from our exclusive portfolio of 25 properties.
+                    </p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
+                                <i data-lucide="phone" class="text-primary w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-text-muted font-bold uppercase tracking-wider mb-1">Call Us Directly</p>
+                                <p class="text-primary font-semibold text-lg">+91 75740 02531</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-full bg-[#25D366]/10 flex items-center justify-center shrink-0">
+                                <i data-lucide="message-circle" class="text-[#25D366] w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-text-muted font-bold uppercase tracking-wider mb-1">WhatsApp Chat</p>
+                                <p class="text-primary font-semibold text-lg">Available 24/7</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <!-- Service 2 -->
-                <div class="glass-panel p-3 rounded-3xl hover:-translate-y-2 transition-transform duration-300 reveal reveal-delay-1 group bg-base-bg/30">
-                    <div class="img-zoom-container rounded-2xl h-64 mb-6">
-                        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80" loading="lazy" alt="Commercial" class="w-full h-full object-cover img-zoom">
-                    </div>
-                    <div class="px-4 pb-6 text-center">
-                        <h3 class="text-xl font-serif mb-3 text-primary">Commercial Spaces</h3>
-                        <p class="text-text-muted text-sm leading-relaxed">Impress clients with sophisticated office environments, retail showrooms, and hospitality spaces built to inspire.</p>
-                    </div>
+
+                <!-- Form Side -->
+                <div class="w-full md:w-7/12 bg-white p-6 md:p-8 rounded-2xl shadow-lg border border-primary/5">
+                    <form id="property-enquiry-form" class="space-y-5">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                            <div>
+                                <label class="block text-xs font-bold text-text-muted uppercase tracking-wider mb-2">Full Name</label>
+                                <input type="text" id="eq-name" required class="form-input" placeholder="John Doe">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-text-muted uppercase tracking-wider mb-2">Phone Number</label>
+                                <input type="tel" id="eq-phone" required class="form-input" placeholder="+91 XXXXX XXXXX">
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-xs font-bold text-text-muted uppercase tracking-wider mb-2">Property Type</label>
+                            <select id="eq-type" class="form-input cursor-pointer appearance-none">
+                                <option value="Looking for a Villa">Luxury Villa</option>
+                                <option value="Looking for an Apartment">Modern Apartment</option>
+                                <option value="Looking for Commercial Space">Commercial Space</option>
+                                <option value="Just exploring properties">General Enquiry</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-xs font-bold text-text-muted uppercase tracking-wider mb-2">Your Message / Requirements</label>
+                            <textarea id="eq-message" rows="3" class="form-input resize-none" placeholder="Tell us what you are looking for (budget, locations, specific needs)..."></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full bg-primary text-accent py-4 rounded-xl font-bold tracking-wide flex justify-center items-center gap-2 hover:bg-primary-light transition-colors shadow-md mt-2">
+                            Send Enquiry via WhatsApp <i data-lucide="send" class="w-4 h-4"></i>
+                        </button>
+                    </form>
                 </div>
-                <!-- Service 3 -->
-                <div class="glass-panel p-3 rounded-3xl hover:-translate-y-2 transition-transform duration-300 reveal reveal-delay-2 group bg-base-bg/30">
-                    <div class="img-zoom-container rounded-2xl h-64 mb-6">
-                        <img src="https://images.unsplash.com/photo-1531834685032-c34bf0d84c77?auto=format&fit=crop&w=800&q=80" loading="lazy" alt="Consultation" class="w-full h-full object-cover img-zoom">
-                    </div>
-                    <div class="px-4 pb-6 text-center">
-                        <h3 class="text-xl font-serif mb-3 text-primary">Design Consultation</h3>
-                        <p class="text-text-muted text-sm leading-relaxed">Not sure where to start? We help you choose the right materials, colors, and layouts to match your aesthetic and budget.</p>
-                    </div>
-                </div>
+
             </div>
         </div>
     </section>
 
     <!-- FOOTER -->
-    <footer id="contact" class="bg-primary-dark pt-20 pb-10 px-6 md:px-12 relative overflow-hidden text-white">
+    <footer id="contact" class="bg-primary-dark pt-20 pb-10 px-6 md:px-12 relative overflow-hidden text-white border-t border-accent/20">
         <!-- Abstract BG Element -->
         <div class="absolute -top-40 -right-40 w-96 h-96 bg-primary rounded-full blur-3xl opacity-50 pointer-events-none"></div>
         
-        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 relative z-10 mb-16">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 relative z-10 mb-16">
             <!-- Brand -->
-            <div>
-                <a href="#" class="flex items-center gap-3 mb-8">
+            <div class="lg:col-span-2">
+                <a href="#" class="flex items-center gap-3 mb-6">
                     <div class="w-12 h-12 rounded-full bg-accent flex items-center justify-center text-primary-dark">
-                        <i data-lucide="layout-dashboard" class="w-6 h-6"></i>
+                        <i data-lucide="home" class="w-6 h-6"></i>
                     </div>
                     <div class="flex flex-col leading-none">
-                        <span class="font-serif text-2xl tracking-wide text-white">Al-Abraq</span>
-                        <span class="text-[0.7rem] tracking-[0.2em] text-accent font-sans uppercase mt-1">Interior Studio</span>
+                        <span class="font-serif text-2xl tracking-wide text-white">Shine Native</span>
+                        <span class="text-[0.7rem] tracking-[0.2em] text-accent font-sans uppercase mt-1">Properties</span>
                     </div>
                 </a>
-                <p class="text-gray-400 text-sm leading-relaxed mb-8 max-w-sm">Crafting luxurious, modern, and enduring interiors for homes and businesses across Srinagar.</p>
+                <p class="text-gray-400 text-sm leading-relaxed mb-8 max-w-sm">
+                    Your premier destination for luxury real estate. Explore our handpicked collection of 25 properties and find the perfect place to call home.
+                </p>
                 <div class="flex gap-4">
-                    <a href="https://youtube.com/channel/UCT9..." target="_blank" class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-gray-300 hover:bg-accent hover:border-accent hover:text-primary-dark transition-all duration-300"><i data-lucide="youtube" class="w-4 h-4"></i></a>
-                    <a href="#" class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-gray-300 hover:bg-accent hover:border-accent hover:text-primary-dark transition-all duration-300"><i data-lucide="instagram" class="w-4 h-4"></i></a>
                     <a href="#" class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-gray-300 hover:bg-accent hover:border-accent hover:text-primary-dark transition-all duration-300"><i data-lucide="facebook" class="w-4 h-4"></i></a>
+                    <a href="#" class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-gray-300 hover:bg-accent hover:border-accent hover:text-primary-dark transition-all duration-300"><i data-lucide="instagram" class="w-4 h-4"></i></a>
+                    <a href="#" class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-gray-300 hover:bg-accent hover:border-accent hover:text-primary-dark transition-all duration-300"><i data-lucide="linkedin" class="w-4 h-4"></i></a>
                 </div>
             </div>
 
             <!-- Quick Links -->
-            <div class="lg:ml-auto">
-                <h4 class="font-serif text-xl mb-6 text-accent">Our Products</h4>
+            <div>
+                <h4 class="font-serif text-xl mb-6 text-accent">Quick Links</h4>
                 <ul class="space-y-4">
-                    <li><a href="#" class="text-gray-400 hover:text-white text-sm transition-colors duration-200 flex items-center gap-2"><div class="w-1.5 h-1.5 rounded-full bg-accent/50"></div> PVC Ceilings</a></li>
-                    <li><a href="#" class="text-gray-400 hover:text-white text-sm transition-colors duration-200 flex items-center gap-2"><div class="w-1.5 h-1.5 rounded-full bg-accent/50"></div> UV Marble Sheets</a></li>
-                    <li><a href="#" class="text-gray-400 hover:text-white text-sm transition-colors duration-200 flex items-center gap-2"><div class="w-1.5 h-1.5 rounded-full bg-accent/50"></div> WPC Louvers & Fluted Panels</a></li>
-                    <li><a href="#" class="text-gray-400 hover:text-white text-sm transition-colors duration-200 flex items-center gap-2"><div class="w-1.5 h-1.5 rounded-full bg-accent/50"></div> Wooden Flooring & Carpets</a></li>
-                    <li><a href="#" class="text-gray-400 hover:text-white text-sm transition-colors duration-200 flex items-center gap-2"><div class="w-1.5 h-1.5 rounded-full bg-accent/50"></div> Imported Wallpaper</a></li>
+                    <li><a href="#properties" class="text-gray-400 hover:text-white text-sm transition-colors duration-200 flex items-center gap-2"><div class="w-1.5 h-1.5 rounded-full bg-accent/50"></div> Featured Properties</a></li>
+                    <li><a href="#why-us" class="text-gray-400 hover:text-white text-sm transition-colors duration-200 flex items-center gap-2"><div class="w-1.5 h-1.5 rounded-full bg-accent/50"></div> About Us</a></li>
+                    <li><a href="#enquiry" class="text-gray-400 hover:text-white text-sm transition-colors duration-200 flex items-center gap-2"><div class="w-1.5 h-1.5 rounded-full bg-accent/50"></div> Submit Enquiry</a></li>
                 </ul>
             </div>
 
             <!-- Contact Info -->
-            <div class="lg:ml-auto">
-                <h4 class="font-serif text-xl mb-6 text-accent">Visit Studio</h4>
+            <div>
+                <h4 class="font-serif text-xl mb-6 text-accent">Contact Us</h4>
                 <ul class="space-y-6">
-                    <li class="flex items-start gap-4">
-                        <div class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center shrink-0 border border-white/10">
-                            <i data-lucide="map-pin" class="w-4 h-4 text-accent"></i>
-                        </div>
-                        <span class="text-gray-400 text-sm leading-relaxed pt-1.5">Rathpora Eidgah<br>Srinagar, Jammu & Kashmir<br>Google Maps: Al-Abraq Interior</span>
-                    </li>
                     <li class="flex items-start gap-4">
                         <div class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center shrink-0 border border-white/10">
                             <i data-lucide="phone" class="w-4 h-4 text-accent"></i>
                         </div>
                         <div class="flex flex-col gap-1.5 pt-1.5">
-                            <a href="tel:+919313818743" class="text-gray-300 hover:text-white text-sm font-medium transition-colors duration-200">+91 93138 18743</a>
-                            <span class="text-gray-500 text-xs">Sunday Closed</span>
+                            <a href="tel:+917574002531" class="text-gray-300 hover:text-white text-sm font-medium transition-colors duration-200">+91 75740 02531</a>
+                            <span class="text-gray-500 text-xs">Mon-Sat, 9AM to 7PM</span>
                         </div>
                     </li>
                     <li class="flex items-start gap-4">
@@ -619,7 +659,7 @@
                             <i data-lucide="mail" class="w-4 h-4 text-accent"></i>
                         </div>
                         <div class="flex flex-col gap-1.5 pt-1.5">
-                            <a href="mailto:support@shinenative.in" class="text-gray-300 hover:text-white text-sm font-medium transition-colors duration-200">support@shinenative.in</a>
+                            <a href="mailto:info@shinenative.com" class="text-gray-300 hover:text-white text-sm font-medium transition-colors duration-200">info@shinenative.com</a>
                         </div>
                     </li>
                 </ul>
@@ -627,85 +667,23 @@
         </div>
 
         <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 relative z-10">
-            <p class="text-gray-500 text-xs">© 2026 Al-Abraq Interior. All rights reserved.</p>
+            <p class="text-gray-500 text-xs">© 2026 Shine Native Properties. All rights reserved.</p>
         </div>
     </footer>
-
-    <!-- INQUIRY MODAL (Hidden by default) -->
-    <div id="inquiry-modal" class="fixed inset-0 z-[100] hidden flex items-center justify-center p-4">
-        <!-- Overlay -->
-        <div class="absolute inset-0 modal-overlay transition-opacity" onclick="closeInquiryModal()"></div>
-        
-        <!-- Modal Panel -->
-        <div class="modal-content relative w-full max-w-md rounded-2xl p-6 sm:p-8 transform transition-all animate-fade-in shadow-2xl">
-            <!-- Close Button -->
-            <button onclick="closeInquiryModal()" class="absolute top-4 right-4 text-text-muted hover:text-primary transition-colors bg-base-bg p-1.5 rounded-full">
-                <i data-lucide="x" class="w-5 h-5"></i>
-            </button>
-            
-            <h3 class="text-2xl font-serif text-primary mb-2">Send Inquiry</h3>
-            <p class="text-sm text-text-muted mb-6">Let us know what you need, and we'll get back to you with pricing and details.</p>
-            
-            <form id="inquiry-form" class="space-y-4" onsubmit="return false;">
-                <!-- Product Selection (Readonly/Prefilled) -->
-                <div>
-                    <label class="block text-xs font-bold text-primary uppercase tracking-wider mb-1.5">Interested Product</label>
-                    <div class="relative">
-                        <i data-lucide="package" class="absolute left-3 top-3 w-4 h-4 text-primary/50"></i>
-                        <input type="text" id="modal-product" readonly class="w-full bg-base-bg border border-primary/20 text-primary font-semibold rounded-xl pl-10 pr-4 py-2.5 outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all cursor-not-allowed">
-                    </div>
-                </div>
-                
-                <!-- Name -->
-                <div>
-                    <label class="block text-xs font-bold text-primary uppercase tracking-wider mb-1.5">Your Name *</label>
-                    <div class="relative">
-                        <i data-lucide="user" class="absolute left-3 top-3 w-4 h-4 text-primary/50"></i>
-                        <input type="text" id="modal-name" required placeholder="John Doe" class="w-full bg-white border border-primary/20 text-text-main rounded-xl pl-10 pr-4 py-2.5 outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all">
-                    </div>
-                </div>
-                
-                <!-- Phone -->
-                <div>
-                    <label class="block text-xs font-bold text-primary uppercase tracking-wider mb-1.5">Phone Number *</label>
-                    <div class="relative">
-                        <i data-lucide="phone" class="absolute left-3 top-3 w-4 h-4 text-primary/50"></i>
-                        <input type="tel" id="modal-phone" required placeholder="+91 XXXX XXXXXX" class="w-full bg-white border border-primary/20 text-text-main rounded-xl pl-10 pr-4 py-2.5 outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all">
-                    </div>
-                </div>
-                
-                <!-- Message -->
-                <div>
-                    <label class="block text-xs font-bold text-primary uppercase tracking-wider mb-1.5">Additional Details</label>
-                    <textarea id="modal-msg" rows="3" placeholder="I need this for my living room (approx 150 sq.ft)..." class="w-full bg-white border border-primary/20 text-text-main rounded-xl p-3 outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all"></textarea>
-                </div>
-                
-                <!-- Submit Buttons -->
-                <div class="pt-4 flex flex-col sm:flex-row gap-3">
-                    <button type="button" onclick="sendInquiry('whatsapp')" class="flex-1 bg-[#25D366] text-white py-3 rounded-xl font-bold flex items-center justify-center gap-2 hover:bg-[#1DA851] transition-all shadow-md">
-                        <i data-lucide="message-circle" class="w-5 h-5"></i> via WhatsApp
-                    </button>
-                    <button type="button" onclick="sendInquiry('email')" class="flex-1 bg-primary text-accent py-3 rounded-xl font-bold flex items-center justify-center gap-2 hover:bg-primary-dark transition-all shadow-md">
-                        <i data-lucide="mail" class="w-5 h-5"></i> via Email
-                    </button>
-                </div>
-            </form>
-        </div>
-    </div>
 
     <!-- FLOATING CONTACT BUTTONS -->
     <div class="fixed bottom-8 left-1/2 -translate-x-1/2 z-50 flex flex-row items-center justify-center gap-4 w-max max-w-[95vw]">
         
         <!-- Call Button -->
-        <a href="tel:+919313818743" class="floating-glass-btn rounded-full px-6 md:px-8 h-[56px] flex items-center justify-center gap-3 text-white group whitespace-nowrap">
+        <a href="tel:+917574002531" class="floating-glass-btn rounded-full px-6 md:px-8 h-[56px] flex items-center justify-center gap-3 text-white group whitespace-nowrap">
             <div class="w-8 h-8 rounded-full bg-accent flex items-center justify-center group-hover:scale-110 transition-transform">
                 <i data-lucide="phone-call" class="w-4 h-4 text-primary-dark"></i>
             </div>
-            <span class="font-medium tracking-wide text-[15px] pr-1 hidden sm:block">Call Studio</span>
+            <span class="font-medium tracking-wide text-[15px] pr-1 hidden sm:block">Call Agent</span>
         </a>
         
         <!-- WhatsApp Icon -->
-        <a href="https://wa.me/919313818743" target="_blank" class="w-[56px] h-[56px] rounded-full floating-glass-btn flex items-center justify-center text-[#25D366] hover:text-[#25D366] shrink-0 bg-white shadow-[0_4px_20px_rgba(37,211,102,0.3)] border-none">
+        <a href="https://wa.me/917574002531" target="_blank" class="w-[56px] h-[56px] rounded-full floating-glass-btn flex items-center justify-center text-[#25D366] hover:text-[#25D366] shrink-0 bg-white shadow-[0_4px_20px_rgba(37,211,102,0.3)] border-none">
             <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.441-1.273.607-1.446c.127-.133.358-.2.579-.2.072 0 .141 0 .204.005.152.011.334-.055.518.39.213.518.687 1.679.749 1.802.062.124.104.269.021.436-.083.167-.124.271-.249.42-.125.148-.266.331-.379.438-.125.118-.255.247-.114.492.141.244.625.996 1.341 1.625.924.814 1.666 1.071 1.914 1.19.248.118.393.102.539-.06.146-.162.628-.731.794-.983.166-.252.332-.211.554-.128.221.083 1.411.667 1.652.787.241.121.402.182.46.282.059.099.059.576-.085.981z"></path>
                 <path d="M12.031 2C6.48 2 2 6.48 2 12.031c0 1.96.539 3.844 1.553 5.467L2 22l4.639-1.523A9.974 9.974 0 0 0 12.031 22c5.551 0 10.031-4.48 10.031-10.031C22.062 6.48 17.582 2 12.031 2zm0 18.25c-1.637 0-3.238-.423-4.636-1.222l-.333-.191-3.085 1.013 1.026-3.003-.209-.333A8.252 8.252 0 0 1 3.75 12.031c0-4.566 3.715-8.281 8.281-8.281 4.566 0 8.281 3.715 8.281 8.281 0 4.566-3.715 8.281-8.281 8.281z"></path>
@@ -729,55 +707,34 @@
             }, 300); 
         });
 
-        // 3. Hero "Get Free Quote" logic
-        document.getElementById('get-quote-btn').addEventListener('click', () => {
-            const serviceValue = document.getElementById('service-select').value || 'Interior Design';
-            const spaceValue = document.getElementById('space-select').value || 'my space';
-            
-            openInquiryModal(`${serviceValue} for ${spaceValue}`);
-        });
-
-        // 4. Modal Logic (Form & Buttons)
-        const modal = document.getElementById('inquiry-modal');
-        const modalProductInput = document.getElementById('modal-product');
-        const modalNameInput = document.getElementById('modal-name');
-        const modalPhoneInput = document.getElementById('modal-phone');
-        const modalMsgInput = document.getElementById('modal-msg');
-
-        function openInquiryModal(productName) {
-            modalProductInput.value = productName;
-            modal.classList.remove('hidden');
+        // 3. Individual Property WA Generator
+        function openPropertyWA(propertyName) {
+            const message = `Hi Shine Native Properties, I am interested in the "${propertyName}". Please share more details, pricing, and availability.`;
+            window.open(`https://wa.me/917574002531?text=${encodeURIComponent(message)}`, '_blank');
         }
 
-        function closeInquiryModal() {
-            modal.classList.add('hidden');
-            // Reset fields
-            modalNameInput.value = '';
-            modalPhoneInput.value = '';
-            modalMsgInput.value = '';
-        }
+        // 4. Form Submit handler -> route to WhatsApp
+        const enquiryForm = document.getElementById('property-enquiry-form');
+        if(enquiryForm) {
+            enquiryForm.addEventListener('submit', (e) => {
+                e.preventDefault(); // Prevent page reload
+                
+                const name = document.getElementById('eq-name').value;
+                const phone = document.getElementById('eq-phone').value;
+                const type = document.getElementById('eq-type').value;
+                const reqMessage = document.getElementById('eq-message').value;
 
-        function sendInquiry(method) {
-            const product = modalProductInput.value;
-            const name = modalNameInput.value.trim();
-            const phone = modalPhoneInput.value.trim();
-            const msg = modalMsgInput.value.trim();
+                let waMessage = `*New Property Enquiry*\n\n`;
+                waMessage += `*Name:* ${name}\n`;
+                waMessage += `*Phone:* ${phone}\n`;
+                waMessage += `*Interest:* ${type}\n`;
+                if(reqMessage) {
+                    waMessage += `*Message:* ${reqMessage}\n`;
+                }
+                waMessage += `\nI would like to know more about the 25 properties you have listed.`;
 
-            if (!name || !phone) {
-                alert("Please fill in your Name and Phone Number.");
-                return;
-            }
-
-            if (method === 'whatsapp') {
-                const text = `Hi Al-Abraq Interior! \nI am inquiring about: *${product}*.\n\n*Name:* ${name}\n*Phone:* ${phone}\n*Details:* ${msg ? msg : 'N/A'}`;
-                window.open(`https://wa.me/919313818743?text=${encodeURIComponent(text)}`, '_blank');
-            } else if (method === 'email') {
-                const subject = `New Inquiry for ${product}`;
-                const body = `Hi Team,\n\nI would like to inquire about: ${product}.\n\nName: ${name}\nPhone: ${phone}\nDetails: ${msg}\n\nThank you!`;
-                window.location.href = `mailto:support@shinenative.in?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-            }
-            
-            closeInquiryModal();
+                window.open(`https://wa.me/917574002531?text=${encodeURIComponent(waMessage)}`, '_blank');
+            });
         }
 
         // 5. Mobile Animated Menu Logic
@@ -844,7 +801,7 @@
                 header.style.background = 'rgba(255, 255, 255, 0.9)';
             } else {
                 header.classList.remove('shadow-md');
-                header.style.background = 'rgba(255, 255, 255, 0.6)';
+                header.style.background = 'rgba(255, 255, 255, 0.7)';
             }
         });
     </script>
