@@ -193,9 +193,6 @@
             transition: all 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
         .reveal.active { opacity: 1; transform: translateY(0); }
-        .reveal-delay-1 { transition-delay: 0.1s; }
-        .reveal-delay-2 { transition-delay: 0.2s; }
-        .reveal-delay-3 { transition-delay: 0.3s; }
 
         .hero-content {
             opacity: 0;
@@ -334,10 +331,10 @@
                     <i data-lucide="map-pin" class="text-primary w-5 h-5 mr-3 group-hover:scale-110 transition-transform"></i>
                     <select id="location-select" class="bg-transparent border-none outline-none text-text-main w-full appearance-none cursor-pointer font-medium">
                         <option value="" disabled selected>Select Location</option>
-                        <option value="Downtown">Downtown Area</option>
-                        <option value="Suburbs">Suburbs</option>
-                        <option value="City Center">City Center</option>
-                        <option value="Waterfront">Waterfront</option>
+                        <option value="Srinagar">Srinagar</option>
+                        <option value="Mumbai">Mumbai</option>
+                        <option value="Delhi">New Delhi</option>
+                        <option value="Bangalore">Bangalore</option>
                     </select>
                 </div>
                 <div class="flex-1 w-full flex items-center bg-white/90 rounded-xl px-4 py-3.5 border border-transparent transition-colors duration-300 group">
@@ -375,7 +372,7 @@
                     <p class="text-text-muted text-sm leading-relaxed">Every property in our portfolio is thoroughly vetted for legal and structural integrity.</p>
                 </div>
                 <!-- Feature 2 -->
-                <div class="p-8 glass-panel rounded-2xl hover:bg-white transition-colors duration-300 reveal reveal-delay-1 text-center group">
+                <div class="p-8 glass-panel rounded-2xl hover:bg-white transition-colors duration-300 reveal text-center group">
                     <div class="w-16 h-16 mx-auto rounded-full bg-base-bg flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-primary transition-all duration-300">
                         <i data-lucide="gem" class="text-primary group-hover:text-accent w-7 h-7"></i>
                     </div>
@@ -383,7 +380,7 @@
                     <p class="text-text-muted text-sm leading-relaxed">Access to 25 premium, handpicked properties that you won't find anywhere else.</p>
                 </div>
                 <!-- Feature 3 -->
-                <div class="p-8 glass-panel rounded-2xl hover:bg-white transition-colors duration-300 reveal reveal-delay-2 text-center group">
+                <div class="p-8 glass-panel rounded-2xl hover:bg-white transition-colors duration-300 reveal text-center group">
                     <div class="w-16 h-16 mx-auto rounded-full bg-base-bg flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-primary transition-all duration-300">
                         <i data-lucide="users" class="text-primary group-hover:text-accent w-7 h-7"></i>
                     </div>
@@ -391,7 +388,7 @@
                     <p class="text-text-muted text-sm leading-relaxed">Our seasoned agents guide you through every step, from viewing to closing the deal.</p>
                 </div>
                 <!-- Feature 4 -->
-                <div class="p-8 glass-panel rounded-2xl hover:bg-white transition-colors duration-300 reveal reveal-delay-3 text-center group">
+                <div class="p-8 glass-panel rounded-2xl hover:bg-white transition-colors duration-300 reveal text-center group">
                     <div class="w-16 h-16 mx-auto rounded-full bg-base-bg flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-primary transition-all duration-300">
                         <i data-lucide="key" class="text-primary group-hover:text-accent w-7 h-7"></i>
                     </div>
@@ -408,10 +405,10 @@
             <div class="flex flex-col md:flex-row justify-between items-end mb-16 reveal gap-6">
                 <div>
                     <span class="text-primary text-xs tracking-[0.2em] uppercase mb-4 block font-bold">Our Collection</span>
-                    <h2 class="text-4xl md:text-5xl font-serif text-text-main">Featured Properties</h2>
+                    <h2 class="text-4xl md:text-5xl font-serif text-text-main">All 25 Exclusive Properties</h2>
                 </div>
-                <button onclick="window.open('https://wa.me/917574002531?text=Hi,%20I%20would%20like%20to%20see%20the%20complete%20list%20of%20all%2025%20properties.', '_blank')" class="text-primary font-semibold hover:text-accent-dark transition-colors flex items-center gap-2 pb-2">
-                    View All 25 Properties <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                <button onclick="document.getElementById('enquiry').scrollIntoView({behavior: 'smooth'})" class="text-primary font-semibold hover:text-accent-dark transition-colors flex items-center gap-2 pb-2">
+                    Request Property Brochure <i data-lucide="download" class="w-4 h-4"></i>
                 </button>
             </div>
 
@@ -420,29 +417,17 @@
                 <!-- Property 1 -->
                 <div class="property-card rounded-3xl overflow-hidden reveal flex flex-col">
                     <div class="relative h-64 img-zoom-container">
-                        <img src="https://images.unsplash.com/photo-1600607686527-6fb886090705?auto=format&fit=crop&w=800&q=80" loading="lazy" alt="Luxury Villa" class="w-full h-full object-cover img-zoom">
-                        <div class="absolute top-4 left-4 bg-primary text-accent text-xs font-bold px-3 py-1.5 rounded-md tracking-wider uppercase">
-                            For Sale
-                        </div>
-                        <div class="absolute bottom-4 right-4 bg-white/90 backdrop-blur-sm text-primary-dark font-bold px-4 py-2 rounded-lg shadow-lg">
-                            $1,250,000
-                        </div>
+                        <img src="https://images.unsplash.com/photo-1600607686527-6fb886090705?auto=format&fit=crop&w=800&q=80" loading="lazy" alt="The Grand Oasis Villa" class="w-full h-full object-cover img-zoom">
+                        <div class="absolute top-4 left-4 bg-primary text-accent text-xs font-bold px-3 py-1.5 rounded-md tracking-wider uppercase">For Sale</div>
+                        <div class="absolute bottom-4 right-4 bg-white/90 backdrop-blur-sm text-primary-dark font-bold px-4 py-2 rounded-lg shadow-lg">₹ 3,50,00,000</div>
                     </div>
                     <div class="p-6 flex flex-col flex-1">
                         <h3 class="text-2xl font-serif text-primary mb-2">The Grand Oasis Villa</h3>
-                        <p class="text-text-muted flex items-center gap-1.5 text-sm mb-4">
-                            <i data-lucide="map-pin" class="w-4 h-4 text-accent-dark"></i> Beverly Hills, CA
-                        </p>
+                        <p class="text-text-muted flex items-center gap-1.5 text-sm mb-4"><i data-lucide="map-pin" class="w-4 h-4 text-accent-dark"></i> Srinagar, J&K</p>
                         <div class="flex items-center justify-between border-t border-b border-gray-100 py-4 mb-6 mt-auto">
-                            <div class="flex items-center gap-2 text-sm text-gray-600 font-medium">
-                                <i data-lucide="bed" class="w-4 h-4 text-primary"></i> 4 Beds
-                            </div>
-                            <div class="flex items-center gap-2 text-sm text-gray-600 font-medium">
-                                <i data-lucide="bath" class="w-4 h-4 text-primary"></i> 3 Baths
-                            </div>
-                            <div class="flex items-center gap-2 text-sm text-gray-600 font-medium">
-                                <i data-lucide="square" class="w-4 h-4 text-primary"></i> 3,200 sqft
-                            </div>
+                            <div class="flex items-center gap-2 text-sm text-gray-600 font-medium"><i data-lucide="bed" class="w-4 h-4 text-primary"></i> 4 Beds</div>
+                            <div class="flex items-center gap-2 text-sm text-gray-600 font-medium"><i data-lucide="bath" class="w-4 h-4 text-primary"></i> 3 Baths</div>
+                            <div class="flex items-center gap-2 text-sm text-gray-600 font-medium"><i data-lucide="square" class="w-4 h-4 text-primary"></i> 3,200 sqft</div>
                         </div>
                         <button onclick="openPropertyWA('The Grand Oasis Villa')" class="w-full bg-base-bg text-primary border border-primary/20 py-3 rounded-xl font-semibold hover:bg-primary hover:text-accent transition-colors flex justify-center items-center gap-2">
                             <i data-lucide="info" class="w-4 h-4"></i> Inquire Details
@@ -451,31 +436,19 @@
                 </div>
 
                 <!-- Property 2 -->
-                <div class="property-card rounded-3xl overflow-hidden reveal reveal-delay-1 flex flex-col">
+                <div class="property-card rounded-3xl overflow-hidden reveal flex flex-col">
                     <div class="relative h-64 img-zoom-container">
-                        <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80" loading="lazy" alt="Modern Apartment" class="w-full h-full object-cover img-zoom">
-                        <div class="absolute top-4 left-4 bg-primary text-accent text-xs font-bold px-3 py-1.5 rounded-md tracking-wider uppercase">
-                            For Sale
-                        </div>
-                        <div class="absolute bottom-4 right-4 bg-white/90 backdrop-blur-sm text-primary-dark font-bold px-4 py-2 rounded-lg shadow-lg">
-                            $850,000
-                        </div>
+                        <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80" loading="lazy" alt="Skyline View Penthouse" class="w-full h-full object-cover img-zoom">
+                        <div class="absolute top-4 left-4 bg-primary text-accent text-xs font-bold px-3 py-1.5 rounded-md tracking-wider uppercase">For Sale</div>
+                        <div class="absolute bottom-4 right-4 bg-white/90 backdrop-blur-sm text-primary-dark font-bold px-4 py-2 rounded-lg shadow-lg">₹ 8,50,00,000</div>
                     </div>
                     <div class="p-6 flex flex-col flex-1">
                         <h3 class="text-2xl font-serif text-primary mb-2">Skyline View Penthouse</h3>
-                        <p class="text-text-muted flex items-center gap-1.5 text-sm mb-4">
-                            <i data-lucide="map-pin" class="w-4 h-4 text-accent-dark"></i> Downtown Metro
-                        </p>
+                        <p class="text-text-muted flex items-center gap-1.5 text-sm mb-4"><i data-lucide="map-pin" class="w-4 h-4 text-accent-dark"></i> Worli, Mumbai</p>
                         <div class="flex items-center justify-between border-t border-b border-gray-100 py-4 mb-6 mt-auto">
-                            <div class="flex items-center gap-2 text-sm text-gray-600 font-medium">
-                                <i data-lucide="bed" class="w-4 h-4 text-primary"></i> 3 Beds
-                            </div>
-                            <div class="flex items-center gap-2 text-sm text-gray-600 font-medium">
-                                <i data-lucide="bath" class="w-4 h-4 text-primary"></i> 2 Baths
-                            </div>
-                            <div class="flex items-center gap-2 text-sm text-gray-600 font-medium">
-                                <i data-lucide="square" class="w-4 h-4 text-primary"></i> 2,100 sqft
-                            </div>
+                            <div class="flex items-center gap-2 text-sm text-gray-600 font-medium"><i data-lucide="bed" class="w-4 h-4 text-primary"></i> 3 Beds</div>
+                            <div class="flex items-center gap-2 text-sm text-gray-600 font-medium"><i data-lucide="bath" class="w-4 h-4 text-primary"></i> 2 Baths</div>
+                            <div class="flex items-center gap-2 text-sm text-gray-600 font-medium"><i data-lucide="square" class="w-4 h-4 text-primary"></i> 2,100 sqft</div>
                         </div>
                         <button onclick="openPropertyWA('Skyline View Penthouse')" class="w-full bg-base-bg text-primary border border-primary/20 py-3 rounded-xl font-semibold hover:bg-primary hover:text-accent transition-colors flex justify-center items-center gap-2">
                             <i data-lucide="info" class="w-4 h-4"></i> Inquire Details
@@ -484,33 +457,483 @@
                 </div>
 
                 <!-- Property 3 -->
-                <div class="property-card rounded-3xl overflow-hidden reveal reveal-delay-2 flex flex-col">
+                <div class="property-card rounded-3xl overflow-hidden reveal flex flex-col">
                     <div class="relative h-64 img-zoom-container">
-                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80" loading="lazy" alt="Suburban Home" class="w-full h-full object-cover img-zoom">
-                        <div class="absolute top-4 left-4 bg-primary text-accent text-xs font-bold px-3 py-1.5 rounded-md tracking-wider uppercase">
-                            Just Listed
-                        </div>
-                        <div class="absolute bottom-4 right-4 bg-white/90 backdrop-blur-sm text-primary-dark font-bold px-4 py-2 rounded-lg shadow-lg">
-                            $595,000
-                        </div>
+                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80" loading="lazy" alt="Maple Wood Estate" class="w-full h-full object-cover img-zoom">
+                        <div class="absolute top-4 left-4 bg-primary text-accent text-xs font-bold px-3 py-1.5 rounded-md tracking-wider uppercase">Just Listed</div>
+                        <div class="absolute bottom-4 right-4 bg-white/90 backdrop-blur-sm text-primary-dark font-bold px-4 py-2 rounded-lg shadow-lg">₹ 4,20,00,000</div>
                     </div>
                     <div class="p-6 flex flex-col flex-1">
                         <h3 class="text-2xl font-serif text-primary mb-2">Maple Wood Estate</h3>
-                        <p class="text-text-muted flex items-center gap-1.5 text-sm mb-4">
-                            <i data-lucide="map-pin" class="w-4 h-4 text-accent-dark"></i> Quiet Suburbs
-                        </p>
+                        <p class="text-text-muted flex items-center gap-1.5 text-sm mb-4"><i data-lucide="map-pin" class="w-4 h-4 text-accent-dark"></i> Pahalgam, J&K</p>
                         <div class="flex items-center justify-between border-t border-b border-gray-100 py-4 mb-6 mt-auto">
-                            <div class="flex items-center gap-2 text-sm text-gray-600 font-medium">
-                                <i data-lucide="bed" class="w-4 h-4 text-primary"></i> 4 Beds
-                            </div>
-                            <div class="flex items-center gap-2 text-sm text-gray-600 font-medium">
-                                <i data-lucide="bath" class="w-4 h-4 text-primary"></i> 3.5 Baths
-                            </div>
-                            <div class="flex items-center gap-2 text-sm text-gray-600 font-medium">
-                                <i data-lucide="square" class="w-4 h-4 text-primary"></i> 2,800 sqft
-                            </div>
+                            <div class="flex items-center gap-2 text-sm text-gray-600 font-medium"><i data-lucide="bed" class="w-4 h-4 text-primary"></i> 4 Beds</div>
+                            <div class="flex items-center gap-2 text-sm text-gray-600 font-medium"><i data-lucide="bath" class="w-4 h-4 text-primary"></i> 4 Baths</div>
+                            <div class="flex items-center gap-2 text-sm text-gray-600 font-medium"><i data-lucide="square" class="w-4 h-4 text-primary"></i> 2,800 sqft</div>
                         </div>
                         <button onclick="openPropertyWA('Maple Wood Estate')" class="w-full bg-base-bg text-primary border border-primary/20 py-3 rounded-xl font-semibold hover:bg-primary hover:text-accent transition-colors flex justify-center items-center gap-2">
+                            <i data-lucide="info" class="w-4 h-4"></i> Inquire Details
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Property 4 -->
+                <div class="property-card rounded-3xl overflow-hidden reveal flex flex-col">
+                    <div class="relative h-64 img-zoom-container">
+                        <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80" loading="lazy" alt="Lakefront Luxury Villa" class="w-full h-full object-cover img-zoom">
+                        <div class="absolute top-4 left-4 bg-primary text-accent text-xs font-bold px-3 py-1.5 rounded-md tracking-wider uppercase">Premium</div>
+                        <div class="absolute bottom-4 right-4 bg-white/90 backdrop-blur-sm text-primary-dark font-bold px-4 py-2 rounded-lg shadow-lg">₹ 5,75,00,000</div>
+                    </div>
+                    <div class="p-6 flex flex-col flex-1">
+                        <h3 class="text-2xl font-serif text-primary mb-2">Lakefront Luxury Villa</h3>
+                        <p class="text-text-muted flex items-center gap-1.5 text-sm mb-4"><i data-lucide="map-pin" class="w-4 h-4 text-accent-dark"></i> Dal Lake, Srinagar</p>
+                        <div class="flex items-center justify-between border-t border-b border-gray-100 py-4 mb-6 mt-auto">
+                            <div class="flex items-center gap-2 text-sm text-gray-600 font-medium"><i data-lucide="bed" class="w-4 h-4 text-primary"></i> 5 Beds</div>
+                            <div class="flex items-center gap-2 text-sm text-gray-600 font-medium"><i data-lucide="bath" class="w-4 h-4 text-primary"></i> 4 Baths</div>
+                            <div class="flex items-center gap-2 text-sm text-gray-600 font-medium"><i data-lucide="square" class="w-4 h-4 text-primary"></i> 4,500 sqft</div>
+                        </div>
+                        <button onclick="openPropertyWA('Lakefront Luxury Villa')" class="w-full bg-base-bg text-primary border border-primary/20 py-3 rounded-xl font-semibold hover:bg-primary hover:text-accent transition-colors flex justify-center items-center gap-2">
+                            <i data-lucide="info" class="w-4 h-4"></i> Inquire Details
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Property 5 -->
+                <div class="property-card rounded-3xl overflow-hidden reveal flex flex-col">
+                    <div class="relative h-64 img-zoom-container">
+                        <img src="https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?auto=format&fit=crop&w=800&q=80" loading="lazy" alt="Heritage Bungalow" class="w-full h-full object-cover img-zoom">
+                        <div class="absolute top-4 left-4 bg-primary text-accent text-xs font-bold px-3 py-1.5 rounded-md tracking-wider uppercase">Exclusive</div>
+                        <div class="absolute bottom-4 right-4 bg-white/90 backdrop-blur-sm text-primary-dark font-bold px-4 py-2 rounded-lg shadow-lg">₹ 12,00,00,000</div>
+                    </div>
+                    <div class="p-6 flex flex-col flex-1">
+                        <h3 class="text-2xl font-serif text-primary mb-2">Heritage Bungalow</h3>
+                        <p class="text-text-muted flex items-center gap-1.5 text-sm mb-4"><i data-lucide="map-pin" class="w-4 h-4 text-accent-dark"></i> Old Delhi, Delhi</p>
+                        <div class="flex items-center justify-between border-t border-b border-gray-100 py-4 mb-6 mt-auto">
+                            <div class="flex items-center gap-2 text-sm text-gray-600 font-medium"><i data-lucide="bed" class="w-4 h-4 text-primary"></i> 6 Beds</div>
+                            <div class="flex items-center gap-2 text-sm text-gray-600 font-medium"><i data-lucide="bath" class="w-4 h-4 text-primary"></i> 5 Baths</div>
+                            <div class="flex items-center gap-2 text-sm text-gray-600 font-medium"><i data-lucide="square" class="w-4 h-4 text-primary"></i> 6,000 sqft</div>
+                        </div>
+                        <button onclick="openPropertyWA('Heritage Bungalow')" class="w-full bg-base-bg text-primary border border-primary/20 py-3 rounded-xl font-semibold hover:bg-primary hover:text-accent transition-colors flex justify-center items-center gap-2">
+                            <i data-lucide="info" class="w-4 h-4"></i> Inquire Details
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Property 6 -->
+                <div class="property-card rounded-3xl overflow-hidden reveal flex flex-col">
+                    <div class="relative h-64 img-zoom-container">
+                        <img src="https://images.unsplash.com/photo-1600607686527-6fb886090705?auto=format&fit=crop&w=800&q=80" loading="lazy" alt="Modern Smart Home" class="w-full h-full object-cover img-zoom">
+                        <div class="absolute top-4 left-4 bg-primary text-accent text-xs font-bold px-3 py-1.5 rounded-md tracking-wider uppercase">For Sale</div>
+                        <div class="absolute bottom-4 right-4 bg-white/90 backdrop-blur-sm text-primary-dark font-bold px-4 py-2 rounded-lg shadow-lg">₹ 2,90,00,000</div>
+                    </div>
+                    <div class="p-6 flex flex-col flex-1">
+                        <h3 class="text-2xl font-serif text-primary mb-2">Modern Smart Home</h3>
+                        <p class="text-text-muted flex items-center gap-1.5 text-sm mb-4"><i data-lucide="map-pin" class="w-4 h-4 text-accent-dark"></i> Whitefield, Bangalore</p>
+                        <div class="flex items-center justify-between border-t border-b border-gray-100 py-4 mb-6 mt-auto">
+                            <div class="flex items-center gap-2 text-sm text-gray-600 font-medium"><i data-lucide="bed" class="w-4 h-4 text-primary"></i> 3 Beds</div>
+                            <div class="flex items-center gap-2 text-sm text-gray-600 font-medium"><i data-lucide="bath" class="w-4 h-4 text-primary"></i> 3 Baths</div>
+                            <div class="flex items-center gap-2 text-sm text-gray-600 font-medium"><i data-lucide="square" class="w-4 h-4 text-primary"></i> 2,400 sqft</div>
+                        </div>
+                        <button onclick="openPropertyWA('Modern Smart Home')" class="w-full bg-base-bg text-primary border border-primary/20 py-3 rounded-xl font-semibold hover:bg-primary hover:text-accent transition-colors flex justify-center items-center gap-2">
+                            <i data-lucide="info" class="w-4 h-4"></i> Inquire Details
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Property 7 -->
+                <div class="property-card rounded-3xl overflow-hidden reveal flex flex-col">
+                    <div class="relative h-64 img-zoom-container">
+                        <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80" loading="lazy" alt="Ocean View Apartment" class="w-full h-full object-cover img-zoom">
+                        <div class="absolute top-4 left-4 bg-primary text-accent text-xs font-bold px-3 py-1.5 rounded-md tracking-wider uppercase">For Sale</div>
+                        <div class="absolute bottom-4 right-4 bg-white/90 backdrop-blur-sm text-primary-dark font-bold px-4 py-2 rounded-lg shadow-lg">₹ 1,80,00,000</div>
+                    </div>
+                    <div class="p-6 flex flex-col flex-1">
+                        <h3 class="text-2xl font-serif text-primary mb-2">Ocean View Apartment</h3>
+                        <p class="text-text-muted flex items-center gap-1.5 text-sm mb-4"><i data-lucide="map-pin" class="w-4 h-4 text-accent-dark"></i> Dona Paula, Goa</p>
+                        <div class="flex items-center justify-between border-t border-b border-gray-100 py-4 mb-6 mt-auto">
+                            <div class="flex items-center gap-2 text-sm text-gray-600 font-medium"><i data-lucide="bed" class="w-4 h-4 text-primary"></i> 2 Beds</div>
+                            <div class="flex items-center gap-2 text-sm text-gray-600 font-medium"><i data-lucide="bath" class="w-4 h-4 text-primary"></i> 2 Baths</div>
+                            <div class="flex items-center gap-2 text-sm text-gray-600 font-medium"><i data-lucide="square" class="w-4 h-4 text-primary"></i> 1,500 sqft</div>
+                        </div>
+                        <button onclick="openPropertyWA('Ocean View Apartment')" class="w-full bg-base-bg text-primary border border-primary/20 py-3 rounded-xl font-semibold hover:bg-primary hover:text-accent transition-colors flex justify-center items-center gap-2">
+                            <i data-lucide="info" class="w-4 h-4"></i> Inquire Details
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Property 8 -->
+                <div class="property-card rounded-3xl overflow-hidden reveal flex flex-col">
+                    <div class="relative h-64 img-zoom-container">
+                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80" loading="lazy" alt="Mountain Retreat" class="w-full h-full object-cover img-zoom">
+                        <div class="absolute top-4 left-4 bg-primary text-accent text-xs font-bold px-3 py-1.5 rounded-md tracking-wider uppercase">Premium</div>
+                        <div class="absolute bottom-4 right-4 bg-white/90 backdrop-blur-sm text-primary-dark font-bold px-4 py-2 rounded-lg shadow-lg">₹ 6,40,00,000</div>
+                    </div>
+                    <div class="p-6 flex flex-col flex-1">
+                        <h3 class="text-2xl font-serif text-primary mb-2">Mountain Retreat</h3>
+                        <p class="text-text-muted flex items-center gap-1.5 text-sm mb-4"><i data-lucide="map-pin" class="w-4 h-4 text-accent-dark"></i> Gulmarg, J&K</p>
+                        <div class="flex items-center justify-between border-t border-b border-gray-100 py-4 mb-6 mt-auto">
+                            <div class="flex items-center gap-2 text-sm text-gray-600 font-medium"><i data-lucide="bed" class="w-4 h-4 text-primary"></i> 4 Beds</div>
+                            <div class="flex items-center gap-2 text-sm text-gray-600 font-medium"><i data-lucide="bath" class="w-4 h-4 text-primary"></i> 4 Baths</div>
+                            <div class="flex items-center gap-2 text-sm text-gray-600 font-medium"><i data-lucide="square" class="w-4 h-4 text-primary"></i> 3,600 sqft</div>
+                        </div>
+                        <button onclick="openPropertyWA('Mountain Retreat')" class="w-full bg-base-bg text-primary border border-primary/20 py-3 rounded-xl font-semibold hover:bg-primary hover:text-accent transition-colors flex justify-center items-center gap-2">
+                            <i data-lucide="info" class="w-4 h-4"></i> Inquire Details
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Property 9 -->
+                <div class="property-card rounded-3xl overflow-hidden reveal flex flex-col">
+                    <div class="relative h-64 img-zoom-container">
+                        <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80" loading="lazy" alt="Golf Course Villa" class="w-full h-full object-cover img-zoom">
+                        <div class="absolute top-4 left-4 bg-primary text-accent text-xs font-bold px-3 py-1.5 rounded-md tracking-wider uppercase">Exclusive</div>
+                        <div class="absolute bottom-4 right-4 bg-white/90 backdrop-blur-sm text-primary-dark font-bold px-4 py-2 rounded-lg shadow-lg">₹ 9,50,00,000</div>
+                    </div>
+                    <div class="p-6 flex flex-col flex-1">
+                        <h3 class="text-2xl font-serif text-primary mb-2">Golf Course Villa</h3>
+                        <p class="text-text-muted flex items-center gap-1.5 text-sm mb-4"><i data-lucide="map-pin" class="w-4 h-4 text-accent-dark"></i> DLF Phase 5, Gurgaon</p>
+                        <div class="flex items-center justify-between border-t border-b border-gray-100 py-4 mb-6 mt-auto">
+                            <div class="flex items-center gap-2 text-sm text-gray-600 font-medium"><i data-lucide="bed" class="w-4 h-4 text-primary"></i> 5 Beds</div>
+                            <div class="flex items-center gap-2 text-sm text-gray-600 font-medium"><i data-lucide="bath" class="w-4 h-4 text-primary"></i> 5 Baths</div>
+                            <div class="flex items-center gap-2 text-sm text-gray-600 font-medium"><i data-lucide="square" class="w-4 h-4 text-primary"></i> 5,200 sqft</div>
+                        </div>
+                        <button onclick="openPropertyWA('Golf Course Villa')" class="w-full bg-base-bg text-primary border border-primary/20 py-3 rounded-xl font-semibold hover:bg-primary hover:text-accent transition-colors flex justify-center items-center gap-2">
+                            <i data-lucide="info" class="w-4 h-4"></i> Inquire Details
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Property 10 -->
+                <div class="property-card rounded-3xl overflow-hidden reveal flex flex-col">
+                    <div class="relative h-64 img-zoom-container">
+                        <img src="https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?auto=format&fit=crop&w=800&q=80" loading="lazy" alt="Riverside Mansion" class="w-full h-full object-cover img-zoom">
+                        <div class="absolute top-4 left-4 bg-primary text-accent text-xs font-bold px-3 py-1.5 rounded-md tracking-wider uppercase">For Sale</div>
+                        <div class="absolute bottom-4 right-4 bg-white/90 backdrop-blur-sm text-primary-dark font-bold px-4 py-2 rounded-lg shadow-lg">₹ 4,80,00,000</div>
+                    </div>
+                    <div class="p-6 flex flex-col flex-1">
+                        <h3 class="text-2xl font-serif text-primary mb-2">Riverside Mansion</h3>
+                        <p class="text-text-muted flex items-center gap-1.5 text-sm mb-4"><i data-lucide="map-pin" class="w-4 h-4 text-accent-dark"></i> Koregaon Park, Pune</p>
+                        <div class="flex items-center justify-between border-t border-b border-gray-100 py-4 mb-6 mt-auto">
+                            <div class="flex items-center gap-2 text-sm text-gray-600 font-medium"><i data-lucide="bed" class="w-4 h-4 text-primary"></i> 4 Beds</div>
+                            <div class="flex items-center gap-2 text-sm text-gray-600 font-medium"><i data-lucide="bath" class="w-4 h-4 text-primary"></i> 4 Baths</div>
+                            <div class="flex items-center gap-2 text-sm text-gray-600 font-medium"><i data-lucide="square" class="w-4 h-4 text-primary"></i> 3,800 sqft</div>
+                        </div>
+                        <button onclick="openPropertyWA('Riverside Mansion')" class="w-full bg-base-bg text-primary border border-primary/20 py-3 rounded-xl font-semibold hover:bg-primary hover:text-accent transition-colors flex justify-center items-center gap-2">
+                            <i data-lucide="info" class="w-4 h-4"></i> Inquire Details
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Property 11 -->
+                <div class="property-card rounded-3xl overflow-hidden reveal flex flex-col">
+                    <div class="relative h-64 img-zoom-container">
+                        <img src="https://images.unsplash.com/photo-1600607686527-6fb886090705?auto=format&fit=crop&w=800&q=80" loading="lazy" alt="Royal Palace Estate" class="w-full h-full object-cover img-zoom">
+                        <div class="absolute top-4 left-4 bg-primary text-accent text-xs font-bold px-3 py-1.5 rounded-md tracking-wider uppercase">Ultra Luxury</div>
+                        <div class="absolute bottom-4 right-4 bg-white/90 backdrop-blur-sm text-primary-dark font-bold px-4 py-2 rounded-lg shadow-lg">₹ 15,00,00,000</div>
+                    </div>
+                    <div class="p-6 flex flex-col flex-1">
+                        <h3 class="text-2xl font-serif text-primary mb-2">Royal Palace Estate</h3>
+                        <p class="text-text-muted flex items-center gap-1.5 text-sm mb-4"><i data-lucide="map-pin" class="w-4 h-4 text-accent-dark"></i> Civil Lines, Jaipur</p>
+                        <div class="flex items-center justify-between border-t border-b border-gray-100 py-4 mb-6 mt-auto">
+                            <div class="flex items-center gap-2 text-sm text-gray-600 font-medium"><i data-lucide="bed" class="w-4 h-4 text-primary"></i> 8 Beds</div>
+                            <div class="flex items-center gap-2 text-sm text-gray-600 font-medium"><i data-lucide="bath" class="w-4 h-4 text-primary"></i> 7 Baths</div>
+                            <div class="flex items-center gap-2 text-sm text-gray-600 font-medium"><i data-lucide="square" class="w-4 h-4 text-primary"></i> 10,000 sqft</div>
+                        </div>
+                        <button onclick="openPropertyWA('Royal Palace Estate')" class="w-full bg-base-bg text-primary border border-primary/20 py-3 rounded-xl font-semibold hover:bg-primary hover:text-accent transition-colors flex justify-center items-center gap-2">
+                            <i data-lucide="info" class="w-4 h-4"></i> Inquire Details
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Property 12 -->
+                <div class="property-card rounded-3xl overflow-hidden reveal flex flex-col">
+                    <div class="relative h-64 img-zoom-container">
+                        <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80" loading="lazy" alt="Urban Loft" class="w-full h-full object-cover img-zoom">
+                        <div class="absolute top-4 left-4 bg-primary text-accent text-xs font-bold px-3 py-1.5 rounded-md tracking-wider uppercase">For Sale</div>
+                        <div class="absolute bottom-4 right-4 bg-white/90 backdrop-blur-sm text-primary-dark font-bold px-4 py-2 rounded-lg shadow-lg">₹ 1,50,00,000</div>
+                    </div>
+                    <div class="p-6 flex flex-col flex-1">
+                        <h3 class="text-2xl font-serif text-primary mb-2">Urban Loft</h3>
+                        <p class="text-text-muted flex items-center gap-1.5 text-sm mb-4"><i data-lucide="map-pin" class="w-4 h-4 text-accent-dark"></i> Jubilee Hills, Hyderabad</p>
+                        <div class="flex items-center justify-between border-t border-b border-gray-100 py-4 mb-6 mt-auto">
+                            <div class="flex items-center gap-2 text-sm text-gray-600 font-medium"><i data-lucide="bed" class="w-4 h-4 text-primary"></i> 2 Beds</div>
+                            <div class="flex items-center gap-2 text-sm text-gray-600 font-medium"><i data-lucide="bath" class="w-4 h-4 text-primary"></i> 2 Baths</div>
+                            <div class="flex items-center gap-2 text-sm text-gray-600 font-medium"><i data-lucide="square" class="w-4 h-4 text-primary"></i> 1,800 sqft</div>
+                        </div>
+                        <button onclick="openPropertyWA('Urban Loft')" class="w-full bg-base-bg text-primary border border-primary/20 py-3 rounded-xl font-semibold hover:bg-primary hover:text-accent transition-colors flex justify-center items-center gap-2">
+                            <i data-lucide="info" class="w-4 h-4"></i> Inquire Details
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Property 13 -->
+                <div class="property-card rounded-3xl overflow-hidden reveal flex flex-col">
+                    <div class="relative h-64 img-zoom-container">
+                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80" loading="lazy" alt="Forest Edge Villa" class="w-full h-full object-cover img-zoom">
+                        <div class="absolute top-4 left-4 bg-primary text-accent text-xs font-bold px-3 py-1.5 rounded-md tracking-wider uppercase">Just Listed</div>
+                        <div class="absolute bottom-4 right-4 bg-white/90 backdrop-blur-sm text-primary-dark font-bold px-4 py-2 rounded-lg shadow-lg">₹ 2,25,00,000</div>
+                    </div>
+                    <div class="p-6 flex flex-col flex-1">
+                        <h3 class="text-2xl font-serif text-primary mb-2">Forest Edge Villa</h3>
+                        <p class="text-text-muted flex items-center gap-1.5 text-sm mb-4"><i data-lucide="map-pin" class="w-4 h-4 text-accent-dark"></i> Rajpur Road, Dehradun</p>
+                        <div class="flex items-center justify-between border-t border-b border-gray-100 py-4 mb-6 mt-auto">
+                            <div class="flex items-center gap-2 text-sm text-gray-600 font-medium"><i data-lucide="bed" class="w-4 h-4 text-primary"></i> 3 Beds</div>
+                            <div class="flex items-center gap-2 text-sm text-gray-600 font-medium"><i data-lucide="bath" class="w-4 h-4 text-primary"></i> 3 Baths</div>
+                            <div class="flex items-center gap-2 text-sm text-gray-600 font-medium"><i data-lucide="square" class="w-4 h-4 text-primary"></i> 2,200 sqft</div>
+                        </div>
+                        <button onclick="openPropertyWA('Forest Edge Villa')" class="w-full bg-base-bg text-primary border border-primary/20 py-3 rounded-xl font-semibold hover:bg-primary hover:text-accent transition-colors flex justify-center items-center gap-2">
+                            <i data-lucide="info" class="w-4 h-4"></i> Inquire Details
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Property 14 -->
+                <div class="property-card rounded-3xl overflow-hidden reveal flex flex-col">
+                    <div class="relative h-64 img-zoom-container">
+                        <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80" loading="lazy" alt="Sunset View Penthouse" class="w-full h-full object-cover img-zoom">
+                        <div class="absolute top-4 left-4 bg-primary text-accent text-xs font-bold px-3 py-1.5 rounded-md tracking-wider uppercase">Premium</div>
+                        <div class="absolute bottom-4 right-4 bg-white/90 backdrop-blur-sm text-primary-dark font-bold px-4 py-2 rounded-lg shadow-lg">₹ 5,10,00,000</div>
+                    </div>
+                    <div class="p-6 flex flex-col flex-1">
+                        <h3 class="text-2xl font-serif text-primary mb-2">Sunset View Penthouse</h3>
+                        <p class="text-text-muted flex items-center gap-1.5 text-sm mb-4"><i data-lucide="map-pin" class="w-4 h-4 text-accent-dark"></i> ECR, Chennai</p>
+                        <div class="flex items-center justify-between border-t border-b border-gray-100 py-4 mb-6 mt-auto">
+                            <div class="flex items-center gap-2 text-sm text-gray-600 font-medium"><i data-lucide="bed" class="w-4 h-4 text-primary"></i> 4 Beds</div>
+                            <div class="flex items-center gap-2 text-sm text-gray-600 font-medium"><i data-lucide="bath" class="w-4 h-4 text-primary"></i> 3 Baths</div>
+                            <div class="flex items-center gap-2 text-sm text-gray-600 font-medium"><i data-lucide="square" class="w-4 h-4 text-primary"></i> 3,100 sqft</div>
+                        </div>
+                        <button onclick="openPropertyWA('Sunset View Penthouse')" class="w-full bg-base-bg text-primary border border-primary/20 py-3 rounded-xl font-semibold hover:bg-primary hover:text-accent transition-colors flex justify-center items-center gap-2">
+                            <i data-lucide="info" class="w-4 h-4"></i> Inquire Details
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Property 15 -->
+                <div class="property-card rounded-3xl overflow-hidden reveal flex flex-col">
+                    <div class="relative h-64 img-zoom-container">
+                        <img src="https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?auto=format&fit=crop&w=800&q=80" loading="lazy" alt="Eco-Friendly Farmhouse" class="w-full h-full object-cover img-zoom">
+                        <div class="absolute top-4 left-4 bg-primary text-accent text-xs font-bold px-3 py-1.5 rounded-md tracking-wider uppercase">For Sale</div>
+                        <div class="absolute bottom-4 right-4 bg-white/90 backdrop-blur-sm text-primary-dark font-bold px-4 py-2 rounded-lg shadow-lg">₹ 3,75,00,000</div>
+                    </div>
+                    <div class="p-6 flex flex-col flex-1">
+                        <h3 class="text-2xl font-serif text-primary mb-2">Eco-Friendly Farmhouse</h3>
+                        <p class="text-text-muted flex items-center gap-1.5 text-sm mb-4"><i data-lucide="map-pin" class="w-4 h-4 text-accent-dark"></i> Lonavala, Maharashtra</p>
+                        <div class="flex items-center justify-between border-t border-b border-gray-100 py-4 mb-6 mt-auto">
+                            <div class="flex items-center gap-2 text-sm text-gray-600 font-medium"><i data-lucide="bed" class="w-4 h-4 text-primary"></i> 3 Beds</div>
+                            <div class="flex items-center gap-2 text-sm text-gray-600 font-medium"><i data-lucide="bath" class="w-4 h-4 text-primary"></i> 2 Baths</div>
+                            <div class="flex items-center gap-2 text-sm text-gray-600 font-medium"><i data-lucide="square" class="w-4 h-4 text-primary"></i> 2,500 sqft</div>
+                        </div>
+                        <button onclick="openPropertyWA('Eco-Friendly Farmhouse')" class="w-full bg-base-bg text-primary border border-primary/20 py-3 rounded-xl font-semibold hover:bg-primary hover:text-accent transition-colors flex justify-center items-center gap-2">
+                            <i data-lucide="info" class="w-4 h-4"></i> Inquire Details
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Property 16 -->
+                <div class="property-card rounded-3xl overflow-hidden reveal flex flex-col">
+                    <div class="relative h-64 img-zoom-container">
+                        <img src="https://images.unsplash.com/photo-1600607686527-6fb886090705?auto=format&fit=crop&w=800&q=80" loading="lazy" alt="Premium Tech-Park Suite" class="w-full h-full object-cover img-zoom">
+                        <div class="absolute top-4 left-4 bg-primary text-accent text-xs font-bold px-3 py-1.5 rounded-md tracking-wider uppercase">For Sale</div>
+                        <div class="absolute bottom-4 right-4 bg-white/90 backdrop-blur-sm text-primary-dark font-bold px-4 py-2 rounded-lg shadow-lg">₹ 1,20,00,000</div>
+                    </div>
+                    <div class="p-6 flex flex-col flex-1">
+                        <h3 class="text-2xl font-serif text-primary mb-2">Premium Tech-Park Suite</h3>
+                        <p class="text-text-muted flex items-center gap-1.5 text-sm mb-4"><i data-lucide="map-pin" class="w-4 h-4 text-accent-dark"></i> Sector 132, Noida</p>
+                        <div class="flex items-center justify-between border-t border-b border-gray-100 py-4 mb-6 mt-auto">
+                            <div class="flex items-center gap-2 text-sm text-gray-600 font-medium"><i data-lucide="bed" class="w-4 h-4 text-primary"></i> 2 Beds</div>
+                            <div class="flex items-center gap-2 text-sm text-gray-600 font-medium"><i data-lucide="bath" class="w-4 h-4 text-primary"></i> 1 Baths</div>
+                            <div class="flex items-center gap-2 text-sm text-gray-600 font-medium"><i data-lucide="square" class="w-4 h-4 text-primary"></i> 1,100 sqft</div>
+                        </div>
+                        <button onclick="openPropertyWA('Premium Tech-Park Suite')" class="w-full bg-base-bg text-primary border border-primary/20 py-3 rounded-xl font-semibold hover:bg-primary hover:text-accent transition-colors flex justify-center items-center gap-2">
+                            <i data-lucide="info" class="w-4 h-4"></i> Inquire Details
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Property 17 -->
+                <div class="property-card rounded-3xl overflow-hidden reveal flex flex-col">
+                    <div class="relative h-64 img-zoom-container">
+                        <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80" loading="lazy" alt="The Imperial Residence" class="w-full h-full object-cover img-zoom">
+                        <div class="absolute top-4 left-4 bg-primary text-accent text-xs font-bold px-3 py-1.5 rounded-md tracking-wider uppercase">Premium</div>
+                        <div class="absolute bottom-4 right-4 bg-white/90 backdrop-blur-sm text-primary-dark font-bold px-4 py-2 rounded-lg shadow-lg">₹ 4,10,00,000</div>
+                    </div>
+                    <div class="p-6 flex flex-col flex-1">
+                        <h3 class="text-2xl font-serif text-primary mb-2">The Imperial Residence</h3>
+                        <p class="text-text-muted flex items-center gap-1.5 text-sm mb-4"><i data-lucide="map-pin" class="w-4 h-4 text-accent-dark"></i> Sector 8, Chandigarh</p>
+                        <div class="flex items-center justify-between border-t border-b border-gray-100 py-4 mb-6 mt-auto">
+                            <div class="flex items-center gap-2 text-sm text-gray-600 font-medium"><i data-lucide="bed" class="w-4 h-4 text-primary"></i> 4 Beds</div>
+                            <div class="flex items-center gap-2 text-sm text-gray-600 font-medium"><i data-lucide="bath" class="w-4 h-4 text-primary"></i> 4 Baths</div>
+                            <div class="flex items-center gap-2 text-sm text-gray-600 font-medium"><i data-lucide="square" class="w-4 h-4 text-primary"></i> 3,400 sqft</div>
+                        </div>
+                        <button onclick="openPropertyWA('The Imperial Residence')" class="w-full bg-base-bg text-primary border border-primary/20 py-3 rounded-xl font-semibold hover:bg-primary hover:text-accent transition-colors flex justify-center items-center gap-2">
+                            <i data-lucide="info" class="w-4 h-4"></i> Inquire Details
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Property 18 -->
+                <div class="property-card rounded-3xl overflow-hidden reveal flex flex-col">
+                    <div class="relative h-64 img-zoom-container">
+                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80" loading="lazy" alt="Hilltop Mansion" class="w-full h-full object-cover img-zoom">
+                        <div class="absolute top-4 left-4 bg-primary text-accent text-xs font-bold px-3 py-1.5 rounded-md tracking-wider uppercase">Exclusive</div>
+                        <div class="absolute bottom-4 right-4 bg-white/90 backdrop-blur-sm text-primary-dark font-bold px-4 py-2 rounded-lg shadow-lg">₹ 7,20,00,000</div>
+                    </div>
+                    <div class="p-6 flex flex-col flex-1">
+                        <h3 class="text-2xl font-serif text-primary mb-2">Hilltop Mansion</h3>
+                        <p class="text-text-muted flex items-center gap-1.5 text-sm mb-4"><i data-lucide="map-pin" class="w-4 h-4 text-accent-dark"></i> Mashobra, Shimla</p>
+                        <div class="flex items-center justify-between border-t border-b border-gray-100 py-4 mb-6 mt-auto">
+                            <div class="flex items-center gap-2 text-sm text-gray-600 font-medium"><i data-lucide="bed" class="w-4 h-4 text-primary"></i> 5 Beds</div>
+                            <div class="flex items-center gap-2 text-sm text-gray-600 font-medium"><i data-lucide="bath" class="w-4 h-4 text-primary"></i> 5 Baths</div>
+                            <div class="flex items-center gap-2 text-sm text-gray-600 font-medium"><i data-lucide="square" class="w-4 h-4 text-primary"></i> 4,800 sqft</div>
+                        </div>
+                        <button onclick="openPropertyWA('Hilltop Mansion')" class="w-full bg-base-bg text-primary border border-primary/20 py-3 rounded-xl font-semibold hover:bg-primary hover:text-accent transition-colors flex justify-center items-center gap-2">
+                            <i data-lucide="info" class="w-4 h-4"></i> Inquire Details
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Property 19 -->
+                <div class="property-card rounded-3xl overflow-hidden reveal flex flex-col">
+                    <div class="relative h-64 img-zoom-container">
+                        <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80" loading="lazy" alt="Waterfront Duplex" class="w-full h-full object-cover img-zoom">
+                        <div class="absolute top-4 left-4 bg-primary text-accent text-xs font-bold px-3 py-1.5 rounded-md tracking-wider uppercase">For Sale</div>
+                        <div class="absolute bottom-4 right-4 bg-white/90 backdrop-blur-sm text-primary-dark font-bold px-4 py-2 rounded-lg shadow-lg">₹ 2,60,00,000</div>
+                    </div>
+                    <div class="p-6 flex flex-col flex-1">
+                        <h3 class="text-2xl font-serif text-primary mb-2">Waterfront Duplex</h3>
+                        <p class="text-text-muted flex items-center gap-1.5 text-sm mb-4"><i data-lucide="map-pin" class="w-4 h-4 text-accent-dark"></i> Marine Drive, Kochi</p>
+                        <div class="flex items-center justify-between border-t border-b border-gray-100 py-4 mb-6 mt-auto">
+                            <div class="flex items-center gap-2 text-sm text-gray-600 font-medium"><i data-lucide="bed" class="w-4 h-4 text-primary"></i> 3 Beds</div>
+                            <div class="flex items-center gap-2 text-sm text-gray-600 font-medium"><i data-lucide="bath" class="w-4 h-4 text-primary"></i> 3 Baths</div>
+                            <div class="flex items-center gap-2 text-sm text-gray-600 font-medium"><i data-lucide="square" class="w-4 h-4 text-primary"></i> 2,600 sqft</div>
+                        </div>
+                        <button onclick="openPropertyWA('Waterfront Duplex')" class="w-full bg-base-bg text-primary border border-primary/20 py-3 rounded-xl font-semibold hover:bg-primary hover:text-accent transition-colors flex justify-center items-center gap-2">
+                            <i data-lucide="info" class="w-4 h-4"></i> Inquire Details
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Property 20 -->
+                <div class="property-card rounded-3xl overflow-hidden reveal flex flex-col">
+                    <div class="relative h-64 img-zoom-container">
+                        <img src="https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?auto=format&fit=crop&w=800&q=80" loading="lazy" alt="Blossom Valley Home" class="w-full h-full object-cover img-zoom">
+                        <div class="absolute top-4 left-4 bg-primary text-accent text-xs font-bold px-3 py-1.5 rounded-md tracking-wider uppercase">Just Listed</div>
+                        <div class="absolute bottom-4 right-4 bg-white/90 backdrop-blur-sm text-primary-dark font-bold px-4 py-2 rounded-lg shadow-lg">₹ 3,15,00,000</div>
+                    </div>
+                    <div class="p-6 flex flex-col flex-1">
+                        <h3 class="text-2xl font-serif text-primary mb-2">Blossom Valley Home</h3>
+                        <p class="text-text-muted flex items-center gap-1.5 text-sm mb-4"><i data-lucide="map-pin" class="w-4 h-4 text-accent-dark"></i> Lovedale, Ooty</p>
+                        <div class="flex items-center justify-between border-t border-b border-gray-100 py-4 mb-6 mt-auto">
+                            <div class="flex items-center gap-2 text-sm text-gray-600 font-medium"><i data-lucide="bed" class="w-4 h-4 text-primary"></i> 3 Beds</div>
+                            <div class="flex items-center gap-2 text-sm text-gray-600 font-medium"><i data-lucide="bath" class="w-4 h-4 text-primary"></i> 2 Baths</div>
+                            <div class="flex items-center gap-2 text-sm text-gray-600 font-medium"><i data-lucide="square" class="w-4 h-4 text-primary"></i> 2,000 sqft</div>
+                        </div>
+                        <button onclick="openPropertyWA('Blossom Valley Home')" class="w-full bg-base-bg text-primary border border-primary/20 py-3 rounded-xl font-semibold hover:bg-primary hover:text-accent transition-colors flex justify-center items-center gap-2">
+                            <i data-lucide="info" class="w-4 h-4"></i> Inquire Details
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Property 21 -->
+                <div class="property-card rounded-3xl overflow-hidden reveal flex flex-col">
+                    <div class="relative h-64 img-zoom-container">
+                        <img src="https://images.unsplash.com/photo-1600607686527-6fb886090705?auto=format&fit=crop&w=800&q=80" loading="lazy" alt="The Sapphire Penthouse" class="w-full h-full object-cover img-zoom">
+                        <div class="absolute top-4 left-4 bg-primary text-accent text-xs font-bold px-3 py-1.5 rounded-md tracking-wider uppercase">Premium</div>
+                        <div class="absolute bottom-4 right-4 bg-white/90 backdrop-blur-sm text-primary-dark font-bold px-4 py-2 rounded-lg shadow-lg">₹ 4,90,00,000</div>
+                    </div>
+                    <div class="p-6 flex flex-col flex-1">
+                        <h3 class="text-2xl font-serif text-primary mb-2">The Sapphire Penthouse</h3>
+                        <p class="text-text-muted flex items-center gap-1.5 text-sm mb-4"><i data-lucide="map-pin" class="w-4 h-4 text-accent-dark"></i> Park Street, Kolkata</p>
+                        <div class="flex items-center justify-between border-t border-b border-gray-100 py-4 mb-6 mt-auto">
+                            <div class="flex items-center gap-2 text-sm text-gray-600 font-medium"><i data-lucide="bed" class="w-4 h-4 text-primary"></i> 4 Beds</div>
+                            <div class="flex items-center gap-2 text-sm text-gray-600 font-medium"><i data-lucide="bath" class="w-4 h-4 text-primary"></i> 4 Baths</div>
+                            <div class="flex items-center gap-2 text-sm text-gray-600 font-medium"><i data-lucide="square" class="w-4 h-4 text-primary"></i> 3,500 sqft</div>
+                        </div>
+                        <button onclick="openPropertyWA('The Sapphire Penthouse')" class="w-full bg-base-bg text-primary border border-primary/20 py-3 rounded-xl font-semibold hover:bg-primary hover:text-accent transition-colors flex justify-center items-center gap-2">
+                            <i data-lucide="info" class="w-4 h-4"></i> Inquire Details
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Property 22 -->
+                <div class="property-card rounded-3xl overflow-hidden reveal flex flex-col">
+                    <div class="relative h-64 img-zoom-container">
+                        <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80" loading="lazy" alt="Desert Mirage Villa" class="w-full h-full object-cover img-zoom">
+                        <div class="absolute top-4 left-4 bg-primary text-accent text-xs font-bold px-3 py-1.5 rounded-md tracking-wider uppercase">Exclusive</div>
+                        <div class="absolute bottom-4 right-4 bg-white/90 backdrop-blur-sm text-primary-dark font-bold px-4 py-2 rounded-lg shadow-lg">₹ 5,50,00,000</div>
+                    </div>
+                    <div class="p-6 flex flex-col flex-1">
+                        <h3 class="text-2xl font-serif text-primary mb-2">Desert Mirage Villa</h3>
+                        <p class="text-text-muted flex items-center gap-1.5 text-sm mb-4"><i data-lucide="map-pin" class="w-4 h-4 text-accent-dark"></i> Umaid Heritage, Jodhpur</p>
+                        <div class="flex items-center justify-between border-t border-b border-gray-100 py-4 mb-6 mt-auto">
+                            <div class="flex items-center gap-2 text-sm text-gray-600 font-medium"><i data-lucide="bed" class="w-4 h-4 text-primary"></i> 5 Beds</div>
+                            <div class="flex items-center gap-2 text-sm text-gray-600 font-medium"><i data-lucide="bath" class="w-4 h-4 text-primary"></i> 4 Baths</div>
+                            <div class="flex items-center gap-2 text-sm text-gray-600 font-medium"><i data-lucide="square" class="w-4 h-4 text-primary"></i> 4,200 sqft</div>
+                        </div>
+                        <button onclick="openPropertyWA('Desert Mirage Villa')" class="w-full bg-base-bg text-primary border border-primary/20 py-3 rounded-xl font-semibold hover:bg-primary hover:text-accent transition-colors flex justify-center items-center gap-2">
+                            <i data-lucide="info" class="w-4 h-4"></i> Inquire Details
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Property 23 -->
+                <div class="property-card rounded-3xl overflow-hidden reveal flex flex-col">
+                    <div class="relative h-64 img-zoom-container">
+                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80" loading="lazy" alt="Central Park Apartment" class="w-full h-full object-cover img-zoom">
+                        <div class="absolute top-4 left-4 bg-primary text-accent text-xs font-bold px-3 py-1.5 rounded-md tracking-wider uppercase">For Sale</div>
+                        <div class="absolute bottom-4 right-4 bg-white/90 backdrop-blur-sm text-primary-dark font-bold px-4 py-2 rounded-lg shadow-lg">₹ 2,10,00,000</div>
+                    </div>
+                    <div class="p-6 flex flex-col flex-1">
+                        <h3 class="text-2xl font-serif text-primary mb-2">Central Park Apartment</h3>
+                        <p class="text-text-muted flex items-center gap-1.5 text-sm mb-4"><i data-lucide="map-pin" class="w-4 h-4 text-accent-dark"></i> Kharghar, Navi Mumbai</p>
+                        <div class="flex items-center justify-between border-t border-b border-gray-100 py-4 mb-6 mt-auto">
+                            <div class="flex items-center gap-2 text-sm text-gray-600 font-medium"><i data-lucide="bed" class="w-4 h-4 text-primary"></i> 3 Beds</div>
+                            <div class="flex items-center gap-2 text-sm text-gray-600 font-medium"><i data-lucide="bath" class="w-4 h-4 text-primary"></i> 2 Baths</div>
+                            <div class="flex items-center gap-2 text-sm text-gray-600 font-medium"><i data-lucide="square" class="w-4 h-4 text-primary"></i> 1,600 sqft</div>
+                        </div>
+                        <button onclick="openPropertyWA('Central Park Apartment')" class="w-full bg-base-bg text-primary border border-primary/20 py-3 rounded-xl font-semibold hover:bg-primary hover:text-accent transition-colors flex justify-center items-center gap-2">
+                            <i data-lucide="info" class="w-4 h-4"></i> Inquire Details
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Property 24 -->
+                <div class="property-card rounded-3xl overflow-hidden reveal flex flex-col">
+                    <div class="relative h-64 img-zoom-container">
+                        <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80" loading="lazy" alt="High-Rise Luxury Suite" class="w-full h-full object-cover img-zoom">
+                        <div class="absolute top-4 left-4 bg-primary text-accent text-xs font-bold px-3 py-1.5 rounded-md tracking-wider uppercase">For Sale</div>
+                        <div class="absolute bottom-4 right-4 bg-white/90 backdrop-blur-sm text-primary-dark font-bold px-4 py-2 rounded-lg shadow-lg">₹ 3,30,00,000</div>
+                    </div>
+                    <div class="p-6 flex flex-col flex-1">
+                        <h3 class="text-2xl font-serif text-primary mb-2">High-Rise Luxury Suite</h3>
+                        <p class="text-text-muted flex items-center gap-1.5 text-sm mb-4"><i data-lucide="map-pin" class="w-4 h-4 text-accent-dark"></i> SG Highway, Ahmedabad</p>
+                        <div class="flex items-center justify-between border-t border-b border-gray-100 py-4 mb-6 mt-auto">
+                            <div class="flex items-center gap-2 text-sm text-gray-600 font-medium"><i data-lucide="bed" class="w-4 h-4 text-primary"></i> 3 Beds</div>
+                            <div class="flex items-center gap-2 text-sm text-gray-600 font-medium"><i data-lucide="bath" class="w-4 h-4 text-primary"></i> 3 Baths</div>
+                            <div class="flex items-center gap-2 text-sm text-gray-600 font-medium"><i data-lucide="square" class="w-4 h-4 text-primary"></i> 2,300 sqft</div>
+                        </div>
+                        <button onclick="openPropertyWA('High-Rise Luxury Suite')" class="w-full bg-base-bg text-primary border border-primary/20 py-3 rounded-xl font-semibold hover:bg-primary hover:text-accent transition-colors flex justify-center items-center gap-2">
+                            <i data-lucide="info" class="w-4 h-4"></i> Inquire Details
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Property 25 -->
+                <div class="property-card rounded-3xl overflow-hidden reveal flex flex-col">
+                    <div class="relative h-64 img-zoom-container">
+                        <img src="https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?auto=format&fit=crop&w=800&q=80" loading="lazy" alt="The Crown Jewel Estate" class="w-full h-full object-cover img-zoom">
+                        <div class="absolute top-4 left-4 bg-primary text-accent text-xs font-bold px-3 py-1.5 rounded-md tracking-wider uppercase">Masterpiece</div>
+                        <div class="absolute bottom-4 right-4 bg-white/90 backdrop-blur-sm text-primary-dark font-bold px-4 py-2 rounded-lg shadow-lg">₹ 10,50,00,000</div>
+                    </div>
+                    <div class="p-6 flex flex-col flex-1">
+                        <h3 class="text-2xl font-serif text-primary mb-2">The Crown Jewel Estate</h3>
+                        <p class="text-text-muted flex items-center gap-1.5 text-sm mb-4"><i data-lucide="map-pin" class="w-4 h-4 text-accent-dark"></i> Gupkar Road, Srinagar</p>
+                        <div class="flex items-center justify-between border-t border-b border-gray-100 py-4 mb-6 mt-auto">
+                            <div class="flex items-center gap-2 text-sm text-gray-600 font-medium"><i data-lucide="bed" class="w-4 h-4 text-primary"></i> 6 Beds</div>
+                            <div class="flex items-center gap-2 text-sm text-gray-600 font-medium"><i data-lucide="bath" class="w-4 h-4 text-primary"></i> 6 Baths</div>
+                            <div class="flex items-center gap-2 text-sm text-gray-600 font-medium"><i data-lucide="square" class="w-4 h-4 text-primary"></i> 7,500 sqft</div>
+                        </div>
+                        <button onclick="openPropertyWA('The Crown Jewel Estate')" class="w-full bg-base-bg text-primary border border-primary/20 py-3 rounded-xl font-semibold hover:bg-primary hover:text-accent transition-colors flex justify-center items-center gap-2">
                             <i data-lucide="info" class="w-4 h-4"></i> Inquire Details
                         </button>
                     </div>
@@ -519,8 +942,8 @@
             </div>
             
             <div class="mt-12 text-center reveal">
-                <button onclick="window.open('https://wa.me/917574002531?text=Hi,%20I%20want%20to%20explore%20more%20properties.', '_blank')" class="bg-primary text-accent px-10 py-4 rounded-xl font-bold tracking-wide inline-flex items-center justify-center gap-2 border border-primary hover:bg-primary-light hover:text-white transition-all duration-300 shadow-xl">
-                    Explore All 25 Properties <i data-lucide="layout-grid" class="w-5 h-5"></i>
+                <button onclick="document.getElementById('enquiry').scrollIntoView({behavior: 'smooth'})" class="bg-primary text-accent px-10 py-4 rounded-xl font-bold tracking-wide inline-flex items-center justify-center gap-2 border border-primary hover:bg-primary-light hover:text-white transition-all duration-300 shadow-xl">
+                    Contact Agent for Viewings <i data-lucide="calendar" class="w-5 h-5"></i>
                 </button>
             </div>
         </div>
@@ -550,7 +973,7 @@
                             </div>
                             <div>
                                 <p class="text-xs text-text-muted font-bold uppercase tracking-wider mb-1">Call Us Directly</p>
-                                <p class="text-primary font-semibold text-lg">+91 75740 02531</p>
+                                <p class="text-primary font-semibold text-lg">+91 93138 18743</p>
                             </div>
                         </div>
                         <div class="flex items-center gap-4">
@@ -594,9 +1017,15 @@
                             <textarea id="eq-message" rows="3" class="form-input resize-none" placeholder="Tell us what you are looking for (budget, locations, specific needs)..."></textarea>
                         </div>
 
-                        <button type="submit" class="w-full bg-primary text-accent py-4 rounded-xl font-bold tracking-wide flex justify-center items-center gap-2 hover:bg-primary-light transition-colors shadow-md mt-2">
-                            Send Enquiry via WhatsApp <i data-lucide="send" class="w-4 h-4"></i>
-                        </button>
+                        <!-- Double Buttons Container -->
+                        <div class="flex flex-col sm:flex-row gap-4 mt-2">
+                            <button type="submit" id="btn-email" value="email" class="flex-1 bg-primary text-accent py-4 rounded-xl font-bold tracking-wide flex justify-center items-center gap-2 hover:bg-primary-light transition-colors shadow-md text-sm">
+                                Send via Email <i data-lucide="mail" class="w-4 h-4"></i>
+                            </button>
+                            <button type="submit" id="btn-whatsapp" value="whatsapp" class="flex-1 bg-[#25D366] text-white py-4 rounded-xl font-bold tracking-wide flex justify-center items-center gap-2 hover:bg-[#1DA851] transition-colors shadow-md text-sm">
+                                Send via WhatsApp <i data-lucide="send" class="w-4 h-4"></i>
+                            </button>
+                        </div>
                     </form>
                 </div>
 
@@ -650,7 +1079,7 @@
                             <i data-lucide="phone" class="w-4 h-4 text-accent"></i>
                         </div>
                         <div class="flex flex-col gap-1.5 pt-1.5">
-                            <a href="tel:+917574002531" class="text-gray-300 hover:text-white text-sm font-medium transition-colors duration-200">+91 75740 02531</a>
+                            <a href="tel:+919313818743" class="text-gray-300 hover:text-white text-sm font-medium transition-colors duration-200">+91 93138 18743</a>
                             <span class="text-gray-500 text-xs">Mon-Sat, 9AM to 7PM</span>
                         </div>
                     </li>
@@ -659,7 +1088,7 @@
                             <i data-lucide="mail" class="w-4 h-4 text-accent"></i>
                         </div>
                         <div class="flex flex-col gap-1.5 pt-1.5">
-                            <a href="mailto:info@shinenative.com" class="text-gray-300 hover:text-white text-sm font-medium transition-colors duration-200">info@shinenative.com</a>
+                            <a href="mailto:support@shinenative.in" class="text-gray-300 hover:text-white text-sm font-medium transition-colors duration-200">support@shinenative.in</a>
                         </div>
                     </li>
                 </ul>
@@ -674,8 +1103,8 @@
     <!-- FLOATING CONTACT BUTTONS -->
     <div class="fixed bottom-8 left-1/2 -translate-x-1/2 z-50 flex flex-row items-center justify-center gap-4 w-max max-w-[95vw]">
         
-        <!-- Call Button -->
-        <a href="tel:+917574002531" class="floating-glass-btn rounded-full px-6 md:px-8 h-[56px] flex items-center justify-center gap-3 text-white group whitespace-nowrap">
+        <!-- Sticky Call Button (Updated) -->
+        <a href="tel:+919313818743" class="floating-glass-btn rounded-full px-6 md:px-8 h-[56px] flex items-center justify-center gap-3 text-white group whitespace-nowrap">
             <div class="w-8 h-8 rounded-full bg-accent flex items-center justify-center group-hover:scale-110 transition-transform">
                 <i data-lucide="phone-call" class="w-4 h-4 text-primary-dark"></i>
             </div>
@@ -713,27 +1142,42 @@
             window.open(`https://wa.me/917574002531?text=${encodeURIComponent(message)}`, '_blank');
         }
 
-        // 4. Form Submit handler -> route to WhatsApp
+        // 4. Form Submit handler -> route to Email or WhatsApp based on clicked button
         const enquiryForm = document.getElementById('property-enquiry-form');
         if(enquiryForm) {
             enquiryForm.addEventListener('submit', (e) => {
                 e.preventDefault(); // Prevent page reload
                 
+                // Identify which button submitted the form
+                const submitter = e.submitter; 
+
                 const name = document.getElementById('eq-name').value;
                 const phone = document.getElementById('eq-phone').value;
                 const type = document.getElementById('eq-type').value;
                 const reqMessage = document.getElementById('eq-message').value;
 
-                let waMessage = `*New Property Enquiry*\n\n`;
-                waMessage += `*Name:* ${name}\n`;
-                waMessage += `*Phone:* ${phone}\n`;
-                waMessage += `*Interest:* ${type}\n`;
-                if(reqMessage) {
-                    waMessage += `*Message:* ${reqMessage}\n`;
+                if (submitter.id === 'btn-whatsapp') {
+                    // WhatsApp Routing
+                    let waMessage = `*New Property Enquiry*\n\n`;
+                    waMessage += `*Name:* ${name}\n`;
+                    waMessage += `*Phone:* ${phone}\n`;
+                    waMessage += `*Interest:* ${type}\n`;
+                    if(reqMessage) {
+                        waMessage += `*Message:* ${reqMessage}\n`;
+                    }
+                    waMessage += `\nI would like to know more about the 25 properties you have listed.`;
+                    window.open(`https://wa.me/917574002531?text=${encodeURIComponent(waMessage)}`, '_blank');
+                } 
+                else if (submitter.id === 'btn-email') {
+                    // Email Routing
+                    let emailSubject = `Property Enquiry from ${name}`;
+                    let emailBody = `New Property Enquiry\n\nName: ${name}\nPhone: ${phone}\nInterest: ${type}\n`;
+                    if(reqMessage) {
+                        emailBody += `Message: ${reqMessage}\n`;
+                    }
+                    emailBody += `\nI would like to know more about the 25 properties you have listed.`;
+                    window.location.href = `mailto:support@shinenative.in?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
                 }
-                waMessage += `\nI would like to know more about the 25 properties you have listed.`;
-
-                window.open(`https://wa.me/917574002531?text=${encodeURIComponent(waMessage)}`, '_blank');
             });
         }
 
