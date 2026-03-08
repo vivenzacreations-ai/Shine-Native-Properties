@@ -4,41 +4,60 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shine Native Properties | Premium Real Estate</title>
-    <meta name="description" content="Discover premium properties, luxury villas, and modern apartments with Shine Native Properties.">
+    <meta name="description" content="Discover your dream home with Shine Native Properties. Browse our exclusive collection of 25 premium properties.">
     
     <!-- Premium Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
 
-    <!-- Tailwind Configuration -->
+    <!-- Tailwind Configuration based on provided color palette -->
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     fontFamily: {
-                        sans: ['Outfit', 'sans-serif'],
+                        sans: ['Montserrat', 'sans-serif'],
                         serif: ['Playfair Display', 'serif'],
                     },
                     colors: {
                         primary: {
-                            DEFAULT: '#1E293B', // Slate 800
-                            light: '#334155',
-                            dark: '#0F172A'
+                            DEFAULT: '#1F3D2B', // Dark Green
+                            light: '#2A5239',
+                            dark: '#14291C'
                         },
                         accent: {
-                            light: '#FDE68A',
-                            DEFAULT: '#D4AF37', // Premium Gold
-                            dark: '#B45309'
+                            light: '#E6DCC8',
+                            DEFAULT: '#D6C5A3', // Muted Gold/Beige
+                            dark: '#B8A47E'
                         },
-                        whatsapp: {
-                            DEFAULT: '#25D366',
-                            hover: '#1DA851'
+                        base: {
+                            bg: '#EBF5EC', // Light greenish-white background
+                            surface: '#FFFFFF',
+                        },
+                        text: {
+                            main: '#1A1A1A',
+                            muted: '#4A4A4A',
+                            light: '#EBF5EC'
+                        }
+                    },
+                    animation: {
+                        'pulse-soft': 'pulseSoft 3s infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        pulseSoft: {
+                            '0%, 100%': { transform: 'scale(1)', opacity: '1' },
+                            '50%': { transform: 'scale(1.02)', opacity: '0.95' }
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' }
                         }
                     }
                 }
@@ -48,483 +67,741 @@
 
     <style>
         body {
-            background-color: #F8FAFC;
-            color: #0F172A;
+            background-color: #EBF5EC;
+            color: #1A1A1A;
             overflow-x: hidden;
         }
 
         /* --- PRELOADER --- */
-        #preloader {
+        #premium-preloader {
             position: fixed;
             inset: 0;
             z-index: 9999;
-            background-color: #0F172A;
+            background-color: #EBF5EC;
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: opacity 0.5s ease, visibility 0.5s ease;
+            transition: opacity 0.4s ease, visibility 0.4s ease;
         }
 
         .loader-ring {
-            width: 60px;
-            height: 60px;
-            border: 4px solid rgba(212, 175, 55, 0.2);
-            border-top-color: #D4AF37;
+            width: 50px;
+            height: 50px;
+            border: 3px solid rgba(31, 61, 43, 0.1);
+            border-top-color: #1F3D2B;
             border-radius: 50%;
-            animation: spin 1s linear infinite;
+            animation: spinFast 0.8s cubic-bezier(0.6, 0.2, 0.4, 0.8) infinite;
         }
 
-        @keyframes spin { to { transform: rotate(360deg); } }
+        @keyframes spinFast {
+            to { transform: rotate(360deg); }
+        }
 
-        /* --- GLASSMORPHISM --- */
-        .glass-header {
-            background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+        /* --- LIGHT GLASSMORPHISM --- */
+        .brand-bar {
+            background: #1F3D2B;
+            color: #D6C5A3;
+        }
+
+        .liquid-glass-header {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(16px) saturate(180%);
+            -webkit-backdrop-filter: blur(16px) saturate(180%);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.04);
+        }
+
+        .glassy-menu-button {
+            background: rgba(31, 61, 43, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(31, 61, 43, 0.1);
+            border-radius: 9999px;
+            padding: 0.75rem;
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #1F3D2B;
+            transition: 0.3s ease;
+        }
+
+        .glassy-menu-button:hover {
+            background: rgba(31, 61, 43, 0.1);
+            color: #1A1A1A;
+        }
+
+        /* --- FLOATING BUTTONS --- */
+        .floating-glass-btn {
+            background: rgba(31, 61, 43, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(214, 197, 163, 0.3);
+            box-shadow: 0 8px 25px rgba(31, 61, 43, 0.25);
+            transition: all 0.3s ease;
+        }
+
+        .floating-glass-btn:hover {
+            background: #1F3D2B;
+            border-color: #D6C5A3;
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(31, 61, 43, 0.3);
+        }
+
+        /* --- TEXT EFFECTS --- */
+        .text-accent-gradient {
+            background: linear-gradient(135deg, #1F3D2B, #2A5239);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .text-gold-gradient {
+            background: linear-gradient(to right, #D6C5A3, #E6DCC8, #D6C5A3);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            background-size: 200% auto;
+            animation: shine 5s linear infinite;
+        }
+
+        @keyframes shine { to { background-position: 200% center; } }
+
+        /* --- CARDS & PANELS --- */
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.75);
+            border: 1px solid rgba(255, 255, 255, 0.9);
+            box-shadow: 0 8px 32px rgba(31, 61, 43, 0.05);
+            backdrop-filter: blur(10px);
         }
 
         .property-card {
             background: #FFFFFF;
-            border-radius: 1rem;
-            overflow: hidden;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
-            transition: all 0.3s ease;
-            border: 1px solid #F1F5F9;
+            border: 1px solid rgba(31, 61, 43, 0.08);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.03);
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
 
         .property-card:hover {
             transform: translateY(-8px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-            border-color: rgba(212, 175, 55, 0.3);
+            box-shadow: 0 20px 50px rgba(31, 61, 43, 0.1);
         }
 
-        .property-img-wrap {
-            overflow: hidden;
-            position: relative;
+        /* Animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+        .reveal-delay-1 { transition-delay: 0.1s; }
+        .reveal-delay-2 { transition-delay: 0.2s; }
+        .reveal-delay-3 { transition-delay: 0.3s; }
+
+        .hero-content {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease 0.2s, transform 0.8s ease 0.2s;
+        }
+        .hero-content.active {
+            opacity: 1;
+            transform: translateY(0);
         }
 
-        .property-img {
-            transition: transform 0.7s ease;
-        }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #EBF5EC; }
+        ::-webkit-scrollbar-thumb { background: #D6C5A3; border-radius: 10px; }
+        
+        .img-zoom-container { overflow: hidden; }
+        .img-zoom { transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+        .img-zoom-container:hover .img-zoom { transform: scale(1.08); }
 
-        .property-card:hover .property-img {
-            transform: scale(1.1);
-        }
-
-        /* Form Inputs */
-        .custom-input {
+        /* Custom Form Inputs */
+        .form-input {
             width: 100%;
-            background: #F8FAFC;
-            border: 1px solid #E2E8F0;
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid rgba(31, 61, 43, 0.15);
             border-radius: 0.75rem;
-            padding: 0.875rem 1.25rem;
-            color: #0F172A;
+            padding: 1rem 1.25rem;
+            color: #1A1A1A;
             transition: all 0.3s ease;
+        }
+        .form-input:focus {
             outline: none;
-        }
-
-        .custom-input:focus {
-            border-color: #D4AF37;
-            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+            border-color: #1F3D2B;
+            box-shadow: 0 0 0 3px rgba(31, 61, 43, 0.1);
             background: #FFFFFF;
-        }
-
-        /* Floating WA Button */
-        .floating-wa {
-            animation: bounceSoft 3s infinite;
-        }
-
-        @keyframes bounceSoft {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-8px); }
         }
     </style>
 </head>
 <body class="antialiased selection:bg-accent selection:text-primary-dark">
 
     <!-- PRELOADER -->
-    <div id="preloader">
-        <div class="flex flex-col items-center gap-4">
-            <div class="loader-ring"></div>
-            <p class="text-accent font-serif tracking-widest text-sm uppercase">Shine Native Properties</p>
-        </div>
+    <div id="premium-preloader">
+        <div class="loader-ring"></div>
     </div>
 
     <!-- HEADER -->
-    <nav class="fixed top-0 w-full z-50 glass-header transition-all duration-300" id="navbar">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-20">
-                <!-- Logo -->
-                <a href="#" class="flex items-center gap-3 group">
-                    <div class="w-10 h-10 bg-primary text-accent rounded-lg flex items-center justify-center group-hover:bg-accent group-hover:text-primary transition-colors">
-                        <i data-lucide="building-2" class="w-6 h-6"></i>
-                    </div>
-                    <div class="flex flex-col">
-                        <span class="font-serif font-bold text-xl text-primary leading-tight">Shine Native</span>
-                        <span class="text-[0.65rem] tracking-[0.2em] text-gray-500 uppercase font-medium">Properties</span>
-                    </div>
-                </a>
+    <div class="fixed top-0 z-40 flex flex-col items-center w-full" id="main-header">
+        <!-- Brand Tag Line -->
+        <div class="w-full brand-bar text-center text-xs md:text-sm font-medium py-2 tracking-widest uppercase">
+            Shine Native Properties • Your Trusted Real Estate Partner
+        </div>
 
-                <!-- Desktop Menu -->
-                <div class="hidden md:flex items-center space-x-8">
-                    <a href="#home" class="text-sm font-medium text-gray-600 hover:text-accent transition-colors">Home</a>
-                    <a href="#properties" class="text-sm font-medium text-gray-600 hover:text-accent transition-colors">All Properties</a>
-                    <a href="#enquiry" class="text-sm font-medium text-gray-600 hover:text-accent transition-colors">Enquiry Form</a>
-                    <a href="https://wa.me/917574002531" target="_blank" class="flex items-center gap-2 bg-primary text-white px-5 py-2.5 rounded-full text-sm font-medium hover:bg-primary-dark transition-all shadow-lg hover:shadow-xl">
-                        <i data-lucide="phone" class="w-4 h-4 text-accent"></i> +91 75740 02531
+        <!-- Main Nav -->
+        <div class="w-full p-3 md:p-5">
+            <header class="container max-w-7xl mx-auto rounded-2xl md:rounded-full liquid-glass-header transition-all duration-300">
+                <div class="flex justify-between items-center px-4 md:px-8 py-3 md:py-4">
+                    <!-- Logo -->
+                    <a href="#" class="text-xl md:text-2xl font-bold font-serif text-primary flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-accent">
+                            <i data-lucide="home" class="w-5 h-5"></i>
+                        </div>
+                        <div class="flex flex-col leading-none">
+                            <span class="tracking-wide">Shine Native</span>
+                            <span class="text-[0.65rem] tracking-[0.2em] text-muted font-sans font-medium uppercase mt-1">Properties</span>
+                        </div>
                     </a>
-                </div>
 
-                <!-- Mobile Menu Button -->
-                <button id="mobile-menu-btn" class="md:hidden p-2 text-primary hover:text-accent transition-colors focus:outline-none">
-                    <i data-lucide="menu" class="w-6 h-6"></i>
+                    <!-- Desktop Menu -->
+                    <nav class="hidden lg:flex space-x-10 text-text-main font-semibold text-sm tracking-wide">
+                        <a href="#properties" class="hover:text-primary hover:underline underline-offset-8 decoration-accent decoration-2 transition-all">Properties</a>
+                        <a href="#why-us" class="hover:text-primary hover:underline underline-offset-8 decoration-accent decoration-2 transition-all">About Us</a>
+                        <a href="#enquiry" class="hover:text-primary hover:underline underline-offset-8 decoration-accent decoration-2 transition-all">Enquiry Form</a>
+                        <a href="#contact" class="hover:text-primary hover:underline underline-offset-8 decoration-accent decoration-2 transition-all">Contact</a>
+                    </nav>
+
+                    <!-- Mobile Menu Button -->
+                    <button id="mobile-menu-btn" class="lg:hidden glassy-menu-button">
+                        <i data-lucide="menu" class="w-5 h-5"></i>
+                    </button>
+                </div>
+            </header>
+        </div>
+    </div>
+
+    <!-- Mobile Slide-in Menu -->
+    <div id="mobile-overlay" class="fixed inset-0 bg-primary-dark/40 backdrop-blur-sm z-[60] opacity-0 pointer-events-none transition-opacity duration-300"></div>
+    <div id="mobile-menu" class="fixed top-0 right-0 w-[85%] max-w-sm h-full bg-base-surface z-[70] transform translate-x-full transition-transform duration-400 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] flex flex-col p-8 border-l border-primary/10 shadow-2xl rounded-l-3xl">
+        <div class="flex justify-end mb-10">
+            <button id="close-menu-btn" class="text-muted hover:text-primary transition-colors bg-base-bg p-2 rounded-full">
+                <i data-lucide="x" class="w-6 h-6"></i>
+            </button>
+        </div>
+        <div class="flex flex-col gap-6 flex-1">
+            <a href="#properties" class="mobile-link text-2xl font-serif text-primary hover:text-accent-dark transition-all duration-300 opacity-0 translate-x-4 border-b border-base-bg pb-4">Properties</a>
+            <a href="#why-us" class="mobile-link text-2xl font-serif text-primary hover:text-accent-dark transition-all duration-300 opacity-0 translate-x-4 border-b border-base-bg pb-4">About Us</a>
+            <a href="#enquiry" class="mobile-link text-2xl font-serif text-primary hover:text-accent-dark transition-all duration-300 opacity-0 translate-x-4 border-b border-base-bg pb-4">Enquiry Form</a>
+            <a href="#contact" class="mobile-link text-2xl font-serif text-primary hover:text-accent-dark transition-all duration-300 opacity-0 translate-x-4 border-b border-base-bg pb-4">Contact</a>
+        </div>
+        <div class="mt-auto bg-base-bg p-6 rounded-2xl">
+            <p class="text-xs text-muted uppercase tracking-widest mb-3 font-semibold">Direct Contact</p>
+            <a href="tel:+917574002531" class="flex items-center gap-3 text-primary mb-4 font-medium hover:text-primary-dark transition-colors">
+                <div class="w-8 h-8 rounded-full bg-white flex items-center justify-center shadow-sm">
+                    <i data-lucide="phone" class="w-4 h-4"></i>
+                </div>
+                +91 75740 02531
+            </a>
+            <a href="https://wa.me/917574002531" target="_blank" class="w-full bg-[#25D366] text-white py-3.5 rounded-xl flex justify-center items-center gap-2 font-medium hover:bg-[#1DA851] transition-colors shadow-md">
+                <i data-lucide="message-circle" class="w-5 h-5"></i> WhatsApp Us
+            </a>
+        </div>
+    </div>
+
+    <!-- HERO SECTION -->
+    <section class="relative min-h-[90vh] md:min-h-screen w-full flex items-center justify-center overflow-hidden pt-20">
+        <!-- Background Image -->
+        <div class="absolute inset-0 w-full h-full z-0">
+            <!-- Luxury Real Estate Image -->
+            <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1920&q=80" alt="Luxury Real Estate" class="absolute inset-0 w-full h-full object-cover scale-105 animate-pulse-soft">
+            <!-- Elegant Overlays -->
+            <div class="absolute inset-0 bg-primary/50 z-10 mix-blend-multiply"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-primary-dark/95 via-primary-dark/50 to-transparent z-10"></div>
+        </div>
+
+        <div class="relative z-20 text-center px-4 max-w-5xl mx-auto hero-content w-full flex flex-col items-center justify-center" id="hero-content">
+            <span class="text-accent tracking-[0.3em] text-xs md:text-sm uppercase mb-4 block font-semibold drop-shadow-md">Welcome to Shine Native</span>
+            <h1 class="text-4xl md:text-6xl lg:text-7xl font-serif mb-6 leading-tight text-white drop-shadow-2xl">
+                Discover Your <br>
+                <span class="text-gold-gradient italic font-light">Dream Property</span>
+            </h1>
+            <p class="text-base md:text-lg text-gray-200 font-light mb-10 max-w-2xl mx-auto drop-shadow-md">
+                Browse our exclusive portfolio of <strong>25 premium properties</strong>. Whether you're looking for a luxury villa or a modern apartment, we have the perfect space for you.
+            </p>
+
+            <!-- Property Search Bar -->
+            <div class="bg-white/10 backdrop-blur-md border border-white/20 p-2 md:p-3 rounded-2xl flex flex-col md:flex-row items-center gap-2 w-full max-w-4xl mx-auto shadow-2xl">
+                <div class="flex-1 w-full flex items-center bg-white/90 rounded-xl px-4 py-3.5 border border-transparent transition-colors duration-300 group">
+                    <i data-lucide="map-pin" class="text-primary w-5 h-5 mr-3 group-hover:scale-110 transition-transform"></i>
+                    <select id="location-select" class="bg-transparent border-none outline-none text-text-main w-full appearance-none cursor-pointer font-medium">
+                        <option value="" disabled selected>Select Location</option>
+                        <option value="Downtown">Downtown Area</option>
+                        <option value="Suburbs">Suburbs</option>
+                        <option value="City Center">City Center</option>
+                        <option value="Waterfront">Waterfront</option>
+                    </select>
+                </div>
+                <div class="flex-1 w-full flex items-center bg-white/90 rounded-xl px-4 py-3.5 border border-transparent transition-colors duration-300 group">
+                    <i data-lucide="home" class="text-primary w-5 h-5 mr-3 group-hover:scale-110 transition-transform"></i>
+                    <select id="type-select" class="bg-transparent border-none outline-none text-text-main w-full appearance-none cursor-pointer font-medium">
+                        <option value="" disabled selected>Property Type</option>
+                        <option value="Villa">Luxury Villa</option>
+                        <option value="Apartment">Modern Apartment</option>
+                        <option value="Commercial">Commercial Space</option>
+                        <option value="Plot">Land / Plot</option>
+                    </select>
+                </div>
+                <button onclick="document.getElementById('properties').scrollIntoView({behavior: 'smooth'})" class="w-full md:w-auto bg-primary text-accent px-8 py-3.5 rounded-xl font-bold tracking-wide flex items-center justify-center gap-2 border border-primary hover:bg-primary-light hover:text-white transition-all duration-300 shadow-lg shrink-0">
+                    Find Properties <i data-lucide="search" class="w-4 h-4"></i>
                 </button>
             </div>
         </div>
+    </section>
 
-        <!-- Mobile Menu Panel -->
-        <div id="mobile-menu" class="md:hidden hidden bg-white border-t border-gray-100 absolute w-full shadow-2xl">
-            <div class="px-4 pt-2 pb-6 space-y-1 flex flex-col">
-                <a href="#home" class="mobile-link block px-3 py-3 text-base font-medium text-gray-700 hover:text-accent hover:bg-gray-50 rounded-md">Home</a>
-                <a href="#properties" class="mobile-link block px-3 py-3 text-base font-medium text-gray-700 hover:text-accent hover:bg-gray-50 rounded-md">All Properties</a>
-                <a href="#enquiry" class="mobile-link block px-3 py-3 text-base font-medium text-gray-700 hover:text-accent hover:bg-gray-50 rounded-md">Enquiry Form</a>
-                <a href="https://wa.me/917574002531" class="mt-4 flex items-center justify-center gap-2 bg-whatsapp text-white px-5 py-3 rounded-xl text-base font-medium shadow-md">
-                    <i data-lucide="message-circle" class="w-5 h-5"></i> Chat on WhatsApp
-                </a>
+    <!-- WHY CHOOSE US -->
+    <section id="why-us" class="py-24 relative">
+        <div class="max-w-7xl mx-auto px-6 md:px-12">
+            <div class="text-center mb-16 reveal">
+                <span class="text-primary text-xs tracking-[0.2em] uppercase mb-4 block font-bold">Why Shine Native</span>
+                <h2 class="text-4xl md:text-5xl font-serif text-text-main">A Seamless Real Estate Experience</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Feature 1 -->
+                <div class="p-8 glass-panel rounded-2xl hover:bg-white transition-colors duration-300 reveal text-center group">
+                    <div class="w-16 h-16 mx-auto rounded-full bg-base-bg flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-primary transition-all duration-300">
+                        <i data-lucide="shield-check" class="text-primary group-hover:text-accent w-7 h-7"></i>
+                    </div>
+                    <h3 class="text-xl font-serif mb-3 text-primary">Verified Listings</h3>
+                    <p class="text-text-muted text-sm leading-relaxed">Every property in our portfolio is thoroughly vetted for legal and structural integrity.</p>
+                </div>
+                <!-- Feature 2 -->
+                <div class="p-8 glass-panel rounded-2xl hover:bg-white transition-colors duration-300 reveal reveal-delay-1 text-center group">
+                    <div class="w-16 h-16 mx-auto rounded-full bg-base-bg flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-primary transition-all duration-300">
+                        <i data-lucide="gem" class="text-primary group-hover:text-accent w-7 h-7"></i>
+                    </div>
+                    <h3 class="text-xl font-serif mb-3 text-primary">Exclusive Portfolio</h3>
+                    <p class="text-text-muted text-sm leading-relaxed">Access to 25 premium, handpicked properties that you won't find anywhere else.</p>
+                </div>
+                <!-- Feature 3 -->
+                <div class="p-8 glass-panel rounded-2xl hover:bg-white transition-colors duration-300 reveal reveal-delay-2 text-center group">
+                    <div class="w-16 h-16 mx-auto rounded-full bg-base-bg flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-primary transition-all duration-300">
+                        <i data-lucide="users" class="text-primary group-hover:text-accent w-7 h-7"></i>
+                    </div>
+                    <h3 class="text-xl font-serif mb-3 text-primary">Expert Guidance</h3>
+                    <p class="text-text-muted text-sm leading-relaxed">Our seasoned agents guide you through every step, from viewing to closing the deal.</p>
+                </div>
+                <!-- Feature 4 -->
+                <div class="p-8 glass-panel rounded-2xl hover:bg-white transition-colors duration-300 reveal reveal-delay-3 text-center group">
+                    <div class="w-16 h-16 mx-auto rounded-full bg-base-bg flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-primary transition-all duration-300">
+                        <i data-lucide="key" class="text-primary group-hover:text-accent w-7 h-7"></i>
+                    </div>
+                    <h3 class="text-xl font-serif mb-3 text-primary">Smooth Handovers</h3>
+                    <p class="text-text-muted text-sm leading-relaxed">We ensure a hassle-free paperwork process so you can move into your new home faster.</p>
+                </div>
             </div>
         </div>
-    </nav>
+    </section>
 
-    <!-- HERO SECTION -->
-    <section id="home" class="relative pt-20 pb-16 md:pt-32 md:pb-24 flex items-center min-h-[85vh] overflow-hidden">
-        <!-- BG Image -->
-        <div class="absolute inset-0 z-0">
-            <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=2000&q=80" alt="Luxury Home" class="w-full h-full object-cover">
-            <div class="absolute inset-0 bg-primary/70 mix-blend-multiply"></div>
-            <div class="absolute inset-0 bg-gradient-to-t from-gray-900 via-transparent to-transparent opacity-90"></div>
-        </div>
+    <!-- PROPERTY LISTINGS -->
+    <section id="properties" class="py-24 bg-white relative border-t border-primary/5">
+        <div class="max-w-7xl mx-auto px-6 md:px-12">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16 reveal gap-6">
+                <div>
+                    <span class="text-primary text-xs tracking-[0.2em] uppercase mb-4 block font-bold">Our Collection</span>
+                    <h2 class="text-4xl md:text-5xl font-serif text-text-main">Featured Properties</h2>
+                </div>
+                <button onclick="window.open('https://wa.me/917574002531?text=Hi,%20I%20would%20like%20to%20see%20the%20complete%20list%20of%20all%2025%20properties.', '_blank')" class="text-primary font-semibold hover:text-accent-dark transition-colors flex items-center gap-2 pb-2">
+                    View All 25 Properties <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                </button>
+            </div>
 
-        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full text-center md:text-left flex flex-col items-center md:items-start">
-            <span class="inline-block py-1 px-3 rounded-full bg-accent/20 border border-accent/50 text-accent text-xs font-semibold tracking-wider uppercase mb-6 backdrop-blur-sm">
-                Premium Real Estate
-            </span>
-            <h1 class="text-4xl md:text-6xl lg:text-7xl font-serif font-bold text-white leading-tight mb-6 drop-shadow-lg">
-                Find Your Dream <br class="hidden md:block">
-                <span class="text-accent italic font-medium">Property Today</span>
-            </h1>
-            <p class="text-gray-300 text-lg md:text-xl max-w-2xl mb-10 font-light drop-shadow-md">
-                Shine Native Properties offers an exclusive portfolio of residential and commercial spaces. Discover 25+ premium listings tailored to your lifestyle.
-            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Property 1 -->
+                <div class="property-card rounded-3xl overflow-hidden reveal flex flex-col">
+                    <div class="relative h-64 img-zoom-container">
+                        <img src="https://images.unsplash.com/photo-1600607686527-6fb886090705?auto=format&fit=crop&w=800&q=80" loading="lazy" alt="Luxury Villa" class="w-full h-full object-cover img-zoom">
+                        <div class="absolute top-4 left-4 bg-primary text-accent text-xs font-bold px-3 py-1.5 rounded-md tracking-wider uppercase">
+                            For Sale
+                        </div>
+                        <div class="absolute bottom-4 right-4 bg-white/90 backdrop-blur-sm text-primary-dark font-bold px-4 py-2 rounded-lg shadow-lg">
+                            $1,250,000
+                        </div>
+                    </div>
+                    <div class="p-6 flex flex-col flex-1">
+                        <h3 class="text-2xl font-serif text-primary mb-2">The Grand Oasis Villa</h3>
+                        <p class="text-text-muted flex items-center gap-1.5 text-sm mb-4">
+                            <i data-lucide="map-pin" class="w-4 h-4 text-accent-dark"></i> Beverly Hills, CA
+                        </p>
+                        <div class="flex items-center justify-between border-t border-b border-gray-100 py-4 mb-6 mt-auto">
+                            <div class="flex items-center gap-2 text-sm text-gray-600 font-medium">
+                                <i data-lucide="bed" class="w-4 h-4 text-primary"></i> 4 Beds
+                            </div>
+                            <div class="flex items-center gap-2 text-sm text-gray-600 font-medium">
+                                <i data-lucide="bath" class="w-4 h-4 text-primary"></i> 3 Baths
+                            </div>
+                            <div class="flex items-center gap-2 text-sm text-gray-600 font-medium">
+                                <i data-lucide="square" class="w-4 h-4 text-primary"></i> 3,200 sqft
+                            </div>
+                        </div>
+                        <button onclick="openPropertyWA('The Grand Oasis Villa')" class="w-full bg-base-bg text-primary border border-primary/20 py-3 rounded-xl font-semibold hover:bg-primary hover:text-accent transition-colors flex justify-center items-center gap-2">
+                            <i data-lucide="info" class="w-4 h-4"></i> Inquire Details
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Property 2 -->
+                <div class="property-card rounded-3xl overflow-hidden reveal reveal-delay-1 flex flex-col">
+                    <div class="relative h-64 img-zoom-container">
+                        <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80" loading="lazy" alt="Modern Apartment" class="w-full h-full object-cover img-zoom">
+                        <div class="absolute top-4 left-4 bg-primary text-accent text-xs font-bold px-3 py-1.5 rounded-md tracking-wider uppercase">
+                            For Sale
+                        </div>
+                        <div class="absolute bottom-4 right-4 bg-white/90 backdrop-blur-sm text-primary-dark font-bold px-4 py-2 rounded-lg shadow-lg">
+                            $850,000
+                        </div>
+                    </div>
+                    <div class="p-6 flex flex-col flex-1">
+                        <h3 class="text-2xl font-serif text-primary mb-2">Skyline View Penthouse</h3>
+                        <p class="text-text-muted flex items-center gap-1.5 text-sm mb-4">
+                            <i data-lucide="map-pin" class="w-4 h-4 text-accent-dark"></i> Downtown Metro
+                        </p>
+                        <div class="flex items-center justify-between border-t border-b border-gray-100 py-4 mb-6 mt-auto">
+                            <div class="flex items-center gap-2 text-sm text-gray-600 font-medium">
+                                <i data-lucide="bed" class="w-4 h-4 text-primary"></i> 3 Beds
+                            </div>
+                            <div class="flex items-center gap-2 text-sm text-gray-600 font-medium">
+                                <i data-lucide="bath" class="w-4 h-4 text-primary"></i> 2 Baths
+                            </div>
+                            <div class="flex items-center gap-2 text-sm text-gray-600 font-medium">
+                                <i data-lucide="square" class="w-4 h-4 text-primary"></i> 2,100 sqft
+                            </div>
+                        </div>
+                        <button onclick="openPropertyWA('Skyline View Penthouse')" class="w-full bg-base-bg text-primary border border-primary/20 py-3 rounded-xl font-semibold hover:bg-primary hover:text-accent transition-colors flex justify-center items-center gap-2">
+                            <i data-lucide="info" class="w-4 h-4"></i> Inquire Details
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Property 3 -->
+                <div class="property-card rounded-3xl overflow-hidden reveal reveal-delay-2 flex flex-col">
+                    <div class="relative h-64 img-zoom-container">
+                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80" loading="lazy" alt="Suburban Home" class="w-full h-full object-cover img-zoom">
+                        <div class="absolute top-4 left-4 bg-primary text-accent text-xs font-bold px-3 py-1.5 rounded-md tracking-wider uppercase">
+                            Just Listed
+                        </div>
+                        <div class="absolute bottom-4 right-4 bg-white/90 backdrop-blur-sm text-primary-dark font-bold px-4 py-2 rounded-lg shadow-lg">
+                            $595,000
+                        </div>
+                    </div>
+                    <div class="p-6 flex flex-col flex-1">
+                        <h3 class="text-2xl font-serif text-primary mb-2">Maple Wood Estate</h3>
+                        <p class="text-text-muted flex items-center gap-1.5 text-sm mb-4">
+                            <i data-lucide="map-pin" class="w-4 h-4 text-accent-dark"></i> Quiet Suburbs
+                        </p>
+                        <div class="flex items-center justify-between border-t border-b border-gray-100 py-4 mb-6 mt-auto">
+                            <div class="flex items-center gap-2 text-sm text-gray-600 font-medium">
+                                <i data-lucide="bed" class="w-4 h-4 text-primary"></i> 4 Beds
+                            </div>
+                            <div class="flex items-center gap-2 text-sm text-gray-600 font-medium">
+                                <i data-lucide="bath" class="w-4 h-4 text-primary"></i> 3.5 Baths
+                            </div>
+                            <div class="flex items-center gap-2 text-sm text-gray-600 font-medium">
+                                <i data-lucide="square" class="w-4 h-4 text-primary"></i> 2,800 sqft
+                            </div>
+                        </div>
+                        <button onclick="openPropertyWA('Maple Wood Estate')" class="w-full bg-base-bg text-primary border border-primary/20 py-3 rounded-xl font-semibold hover:bg-primary hover:text-accent transition-colors flex justify-center items-center gap-2">
+                            <i data-lucide="info" class="w-4 h-4"></i> Inquire Details
+                        </button>
+                    </div>
+                </div>
+
+            </div>
             
-            <div class="flex flex-col sm:flex-row gap-4 w-full justify-center md:justify-start">
-                <a href="#properties" class="bg-accent text-primary-dark px-8 py-4 rounded-full font-semibold text-lg hover:bg-white transition-colors duration-300 flex items-center justify-center gap-2 shadow-lg">
-                    View 25 Properties <i data-lucide="arrow-down" class="w-5 h-5"></i>
-                </a>
-                <a href="#enquiry" class="bg-white/10 backdrop-blur-md border border-white/30 text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-white/20 transition-all duration-300 flex items-center justify-center gap-2">
-                    Submit Enquiry
-                </a>
+            <div class="mt-12 text-center reveal">
+                <button onclick="window.open('https://wa.me/917574002531?text=Hi,%20I%20want%20to%20explore%20more%20properties.', '_blank')" class="bg-primary text-accent px-10 py-4 rounded-xl font-bold tracking-wide inline-flex items-center justify-center gap-2 border border-primary hover:bg-primary-light hover:text-white transition-all duration-300 shadow-xl">
+                    Explore All 25 Properties <i data-lucide="layout-grid" class="w-5 h-5"></i>
+                </button>
             </div>
         </div>
     </section>
 
-    <!-- ALL PROPERTIES (25 LISTINGS) -->
-    <section id="properties" class="py-20 bg-gray-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-16">
-                <span class="text-accent font-bold tracking-widest text-xs uppercase mb-2 block">Exclusive Portfolio</span>
-                <h2 class="text-3xl md:text-5xl font-serif font-bold text-primary mb-4">Our 25 Featured Listings</h2>
-                <p class="text-gray-500">Browse through our complete catalog of hand-picked real estate opportunities. Contact us via WhatsApp for instant details on any property.</p>
-            </div>
+    <!-- ENQUIRY FORM SECTION -->
+    <section id="enquiry" class="py-24 relative overflow-hidden">
+        <!-- Background Elements -->
+        <div class="absolute top-0 right-0 w-1/2 h-full bg-white opacity-40 -skew-x-12 transform origin-top-right z-0"></div>
+        <div class="absolute -bottom-32 -left-32 w-96 h-96 bg-accent rounded-full blur-3xl opacity-20 pointer-events-none z-0"></div>
 
-            <!-- Dynamic Property Grid -->
-            <div id="property-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- JavaScript will inject exactly 25 property cards here -->
-            </div>
-        </div>
-    </section>
-
-    <!-- ENQUIRY FORM -->
-    <section id="enquiry" class="py-20 bg-white relative">
-        <div class="absolute inset-0 bg-primary/5 skew-y-3 transform -z-10"></div>
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="bg-white rounded-3xl shadow-2xl overflow-hidden border border-gray-100 flex flex-col md:flex-row">
+        <div class="max-w-5xl mx-auto px-6 relative z-10">
+            <div class="bg-white/60 backdrop-blur-xl border border-white p-8 md:p-12 rounded-3xl shadow-2xl flex flex-col md:flex-row gap-12 items-center reveal">
                 
                 <!-- Info Side -->
-                <div class="bg-primary text-white p-10 md:w-2/5 flex flex-col justify-between relative overflow-hidden">
-                    <div class="absolute -right-20 -top-20 w-64 h-64 bg-accent/20 rounded-full blur-3xl"></div>
-                    <div class="relative z-10">
-                        <h3 class="text-3xl font-serif font-bold mb-2">Get in Touch</h3>
-                        <p class="text-gray-300 text-sm mb-8">Fill out the form to send an instant WhatsApp enquiry to our agents.</p>
-                        
-                        <div class="space-y-6">
-                            <div class="flex items-start gap-4">
-                                <div class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center shrink-0">
-                                    <i data-lucide="phone" class="w-5 h-5 text-accent"></i>
-                                </div>
-                                <div>
-                                    <p class="text-xs text-gray-400 uppercase tracking-wider mb-1">Direct Line</p>
-                                    <p class="font-medium">+91 75740 02531</p>
-                                </div>
+                <div class="w-full md:w-5/12">
+                    <span class="text-primary text-xs tracking-[0.2em] uppercase mb-4 block font-bold">Get In Touch</span>
+                    <h2 class="text-4xl font-serif text-text-main mb-6">Let's Find Your Next Home</h2>
+                    <p class="text-text-muted mb-8 leading-relaxed">
+                        Fill out the enquiry form with your requirements. Our real estate experts will get back to you immediately with tailored property options from our exclusive portfolio of 25 properties.
+                    </p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
+                                <i data-lucide="phone" class="text-primary w-5 h-5"></i>
                             </div>
-                            <div class="flex items-start gap-4">
-                                <div class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center shrink-0">
-                                    <i data-lucide="building" class="w-5 h-5 text-accent"></i>
-                                </div>
-                                <div>
-                                    <p class="text-xs text-gray-400 uppercase tracking-wider mb-1">Company</p>
-                                    <p class="font-medium">Shine Native Properties</p>
-                                </div>
+                            <div>
+                                <p class="text-xs text-text-muted font-bold uppercase tracking-wider mb-1">Call Us Directly</p>
+                                <p class="text-primary font-semibold text-lg">+91 75740 02531</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-full bg-[#25D366]/10 flex items-center justify-center shrink-0">
+                                <i data-lucide="message-circle" class="text-[#25D366] w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-text-muted font-bold uppercase tracking-wider mb-1">WhatsApp Chat</p>
+                                <p class="text-primary font-semibold text-lg">Available 24/7</p>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Form Side -->
-                <div class="p-10 md:w-3/5">
-                    <form id="wa-enquiry-form" class="space-y-5">
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                <div class="w-full md:w-7/12 bg-white p-6 md:p-8 rounded-2xl shadow-lg border border-primary/5">
+                    <form id="property-enquiry-form" class="space-y-5">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
                             <div>
-                                <label class="block text-sm font-medium text-gray-700 mb-1.5">Full Name</label>
-                                <input type="text" id="form-name" required class="custom-input" placeholder="John Doe">
+                                <label class="block text-xs font-bold text-text-muted uppercase tracking-wider mb-2">Full Name</label>
+                                <input type="text" id="eq-name" required class="form-input" placeholder="John Doe">
                             </div>
                             <div>
-                                <label class="block text-sm font-medium text-gray-700 mb-1.5">Phone Number</label>
-                                <input type="tel" id="form-phone" required class="custom-input" placeholder="+91 XXXXX XXXXX">
+                                <label class="block text-xs font-bold text-text-muted uppercase tracking-wider mb-2">Phone Number</label>
+                                <input type="tel" id="eq-phone" required class="form-input" placeholder="+91 XXXXX XXXXX">
                             </div>
                         </div>
                         
                         <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-1.5">Property Requirement</label>
-                            <select id="form-type" class="custom-input appearance-none">
-                                <option value="Looking to Buy a Villa">Looking to Buy a Villa</option>
-                                <option value="Looking to Buy an Apartment">Looking to Buy an Apartment</option>
-                                <option value="Looking for Commercial Space">Looking for Commercial Space</option>
-                                <option value="Looking for a Plot/Land">Looking for a Plot/Land</option>
-                                <option value="General Enquiry">General Enquiry</option>
+                            <label class="block text-xs font-bold text-text-muted uppercase tracking-wider mb-2">Property Type</label>
+                            <select id="eq-type" class="form-input cursor-pointer appearance-none">
+                                <option value="Looking for a Villa">Luxury Villa</option>
+                                <option value="Looking for an Apartment">Modern Apartment</option>
+                                <option value="Looking for Commercial Space">Commercial Space</option>
+                                <option value="Just exploring properties">General Enquiry</option>
                             </select>
                         </div>
-
+                        
                         <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-1.5">Message</label>
-                            <textarea id="form-msg" rows="4" required class="custom-input resize-none" placeholder="I am interested in exploring properties within my budget..."></textarea>
+                            <label class="block text-xs font-bold text-text-muted uppercase tracking-wider mb-2">Your Message / Requirements</label>
+                            <textarea id="eq-message" rows="3" class="form-input resize-none" placeholder="Tell us what you are looking for (budget, locations, specific needs)..."></textarea>
                         </div>
 
-                        <button type="submit" class="w-full bg-whatsapp hover:bg-whatsapp-hover text-white font-semibold py-4 rounded-xl transition-colors duration-300 flex items-center justify-center gap-2 shadow-lg shadow-green-200">
-                            <i data-lucide="send" class="w-5 h-5"></i> Send Enquiry via WhatsApp
+                        <button type="submit" class="w-full bg-primary text-accent py-4 rounded-xl font-bold tracking-wide flex justify-center items-center gap-2 hover:bg-primary-light transition-colors shadow-md mt-2">
+                            Send Enquiry via WhatsApp <i data-lucide="send" class="w-4 h-4"></i>
                         </button>
                     </form>
                 </div>
+
             </div>
         </div>
     </section>
 
     <!-- FOOTER -->
-    <footer class="bg-primary-dark pt-16 pb-8 border-t border-white/10 text-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
-                <!-- Brand -->
-                <div>
-                    <a href="#" class="flex items-center gap-3 mb-6">
-                        <div class="w-10 h-10 bg-accent text-primary-dark rounded-lg flex items-center justify-center">
-                            <i data-lucide="building-2" class="w-6 h-6"></i>
-                        </div>
-                        <div class="flex flex-col">
-                            <span class="font-serif font-bold text-xl leading-tight">Shine Native</span>
-                            <span class="text-[0.65rem] tracking-[0.2em] text-accent uppercase font-medium">Properties</span>
-                        </div>
-                    </a>
-                    <p class="text-gray-400 text-sm leading-relaxed max-w-sm">
-                        Your trusted partner in finding premium real estate. We curate the best villas, apartments, and plots tailored to your lifestyle and investments.
-                    </p>
+    <footer id="contact" class="bg-primary-dark pt-20 pb-10 px-6 md:px-12 relative overflow-hidden text-white border-t border-accent/20">
+        <!-- Abstract BG Element -->
+        <div class="absolute -top-40 -right-40 w-96 h-96 bg-primary rounded-full blur-3xl opacity-50 pointer-events-none"></div>
+        
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 relative z-10 mb-16">
+            <!-- Brand -->
+            <div class="lg:col-span-2">
+                <a href="#" class="flex items-center gap-3 mb-6">
+                    <div class="w-12 h-12 rounded-full bg-accent flex items-center justify-center text-primary-dark">
+                        <i data-lucide="home" class="w-6 h-6"></i>
+                    </div>
+                    <div class="flex flex-col leading-none">
+                        <span class="font-serif text-2xl tracking-wide text-white">Shine Native</span>
+                        <span class="text-[0.7rem] tracking-[0.2em] text-accent font-sans uppercase mt-1">Properties</span>
+                    </div>
+                </a>
+                <p class="text-gray-400 text-sm leading-relaxed mb-8 max-w-sm">
+                    Your premier destination for luxury real estate. Explore our handpicked collection of 25 properties and find the perfect place to call home.
+                </p>
+                <div class="flex gap-4">
+                    <a href="#" class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-gray-300 hover:bg-accent hover:border-accent hover:text-primary-dark transition-all duration-300"><i data-lucide="facebook" class="w-4 h-4"></i></a>
+                    <a href="#" class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-gray-300 hover:bg-accent hover:border-accent hover:text-primary-dark transition-all duration-300"><i data-lucide="instagram" class="w-4 h-4"></i></a>
+                    <a href="#" class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-gray-300 hover:bg-accent hover:border-accent hover:text-primary-dark transition-all duration-300"><i data-lucide="linkedin" class="w-4 h-4"></i></a>
                 </div>
-                
-                <!-- Quick Links -->
-                <div>
-                    <h4 class="font-serif font-bold text-lg mb-6 text-white">Quick Links</h4>
-                    <ul class="space-y-3">
-                        <li><a href="#home" class="text-gray-400 hover:text-accent text-sm transition-colors flex items-center gap-2"><i data-lucide="chevron-right" class="w-3 h-3"></i> Home</a></li>
-                        <li><a href="#properties" class="text-gray-400 hover:text-accent text-sm transition-colors flex items-center gap-2"><i data-lucide="chevron-right" class="w-3 h-3"></i> 25 Listed Properties</a></li>
-                        <li><a href="#enquiry" class="text-gray-400 hover:text-accent text-sm transition-colors flex items-center gap-2"><i data-lucide="chevron-right" class="w-3 h-3"></i> Submit Enquiry</a></li>
-                    </ul>
-                </div>
+            </div>
 
-                <!-- Contact Info -->
-                <div>
-                    <h4 class="font-serif font-bold text-lg mb-6 text-white">Contact Us</h4>
-                    <ul class="space-y-4">
-                        <li class="flex items-start gap-3">
-                            <i data-lucide="phone" class="w-5 h-5 text-accent shrink-0 mt-0.5"></i>
-                            <div>
-                                <p class="text-sm font-medium">+91 75740 02531</p>
-                                <p class="text-xs text-gray-500 mt-1">Available Mon-Sat, 9AM-7PM</p>
-                            </div>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <i data-lucide="message-circle" class="w-5 h-5 text-whatsapp shrink-0 mt-0.5"></i>
-                            <div>
-                                <a href="https://wa.me/917574002531" target="_blank" class="text-sm font-medium hover:text-whatsapp transition-colors">Chat on WhatsApp</a>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
+            <!-- Quick Links -->
+            <div>
+                <h4 class="font-serif text-xl mb-6 text-accent">Quick Links</h4>
+                <ul class="space-y-4">
+                    <li><a href="#properties" class="text-gray-400 hover:text-white text-sm transition-colors duration-200 flex items-center gap-2"><div class="w-1.5 h-1.5 rounded-full bg-accent/50"></div> Featured Properties</a></li>
+                    <li><a href="#why-us" class="text-gray-400 hover:text-white text-sm transition-colors duration-200 flex items-center gap-2"><div class="w-1.5 h-1.5 rounded-full bg-accent/50"></div> About Us</a></li>
+                    <li><a href="#enquiry" class="text-gray-400 hover:text-white text-sm transition-colors duration-200 flex items-center gap-2"><div class="w-1.5 h-1.5 rounded-full bg-accent/50"></div> Submit Enquiry</a></li>
+                </ul>
             </div>
-            
-            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-500">
-                <p>&copy; 2026 Shine Native Properties. All rights reserved.</p>
-                <p>Designed for Real Estate Excellence.</p>
+
+            <!-- Contact Info -->
+            <div>
+                <h4 class="font-serif text-xl mb-6 text-accent">Contact Us</h4>
+                <ul class="space-y-6">
+                    <li class="flex items-start gap-4">
+                        <div class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center shrink-0 border border-white/10">
+                            <i data-lucide="phone" class="w-4 h-4 text-accent"></i>
+                        </div>
+                        <div class="flex flex-col gap-1.5 pt-1.5">
+                            <a href="tel:+917574002531" class="text-gray-300 hover:text-white text-sm font-medium transition-colors duration-200">+91 75740 02531</a>
+                            <span class="text-gray-500 text-xs">Mon-Sat, 9AM to 7PM</span>
+                        </div>
+                    </li>
+                    <li class="flex items-start gap-4">
+                        <div class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center shrink-0 border border-white/10">
+                            <i data-lucide="mail" class="w-4 h-4 text-accent"></i>
+                        </div>
+                        <div class="flex flex-col gap-1.5 pt-1.5">
+                            <a href="mailto:info@shinenative.com" class="text-gray-300 hover:text-white text-sm font-medium transition-colors duration-200">info@shinenative.com</a>
+                        </div>
+                    </li>
+                </ul>
             </div>
+        </div>
+
+        <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 relative z-10">
+            <p class="text-gray-500 text-xs">© 2026 Shine Native Properties. All rights reserved.</p>
         </div>
     </footer>
 
-    <!-- FLOATING WHATSAPP BUTTON -->
-    <a href="https://wa.me/917574002531?text=Hello%20Shine%20Native%20Properties,%20I%20am%20looking%20for%20some%20information." 
-       target="_blank" 
-       class="fixed bottom-6 right-6 z-50 bg-whatsapp hover:bg-whatsapp-hover text-white w-14 h-14 rounded-full flex items-center justify-center shadow-[0_4px_20px_rgba(37,211,102,0.4)] transition-all duration-300 floating-wa group">
-        <i data-lucide="message-circle" class="w-7 h-7 group-hover:scale-110 transition-transform"></i>
-    </a>
+    <!-- FLOATING CONTACT BUTTONS -->
+    <div class="fixed bottom-8 left-1/2 -translate-x-1/2 z-50 flex flex-row items-center justify-center gap-4 w-max max-w-[95vw]">
+        
+        <!-- Call Button -->
+        <a href="tel:+917574002531" class="floating-glass-btn rounded-full px-6 md:px-8 h-[56px] flex items-center justify-center gap-3 text-white group whitespace-nowrap">
+            <div class="w-8 h-8 rounded-full bg-accent flex items-center justify-center group-hover:scale-110 transition-transform">
+                <i data-lucide="phone-call" class="w-4 h-4 text-primary-dark"></i>
+            </div>
+            <span class="font-medium tracking-wide text-[15px] pr-1 hidden sm:block">Call Agent</span>
+        </a>
+        
+        <!-- WhatsApp Icon -->
+        <a href="https://wa.me/917574002531" target="_blank" class="w-[56px] h-[56px] rounded-full floating-glass-btn flex items-center justify-center text-[#25D366] hover:text-[#25D366] shrink-0 bg-white shadow-[0_4px_20px_rgba(37,211,102,0.3)] border-none">
+            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.441-1.273.607-1.446c.127-.133.358-.2.579-.2.072 0 .141 0 .204.005.152.011.334-.055.518.39.213.518.687 1.679.749 1.802.062.124.104.269.021.436-.083.167-.124.271-.249.42-.125.148-.266.331-.379.438-.125.118-.255.247-.114.492.141.244.625.996 1.341 1.625.924.814 1.666 1.071 1.914 1.19.248.118.393.102.539-.06.146-.162.628-.731.794-.983.166-.252.332-.211.554-.128.221.083 1.411.667 1.652.787.241.121.402.182.46.282.059.099.059.576-.085.981z"></path>
+                <path d="M12.031 2C6.48 2 2 6.48 2 12.031c0 1.96.539 3.844 1.553 5.467L2 22l4.639-1.523A9.974 9.974 0 0 0 12.031 22c5.551 0 10.031-4.48 10.031-10.031C22.062 6.48 17.582 2 12.031 2zm0 18.25c-1.637 0-3.238-.423-4.636-1.222l-.333-.191-3.085 1.013 1.026-3.003-.209-.333A8.252 8.252 0 0 1 3.75 12.031c0-4.566 3.715-8.281 8.281-8.281 4.566 0 8.281 3.715 8.281 8.281 0 4.566-3.715 8.281-8.281 8.281z"></path>
+            </svg>
+        </a>
+    </div>
 
-    <!-- JAVASCRIPT -->
+    <!-- JavaScript Interactions -->
     <script>
-        // 1. Initialize Icons
+        // 1. Initialize Lucide Icons
         lucide.createIcons();
 
-        // 2. Preloader Logic
+        // 2. Fast Minimal Preloader Logic
         window.addEventListener('load', () => {
             setTimeout(() => {
-                const preloader = document.getElementById('preloader');
+                const preloader = document.getElementById('premium-preloader');
                 preloader.style.opacity = '0';
                 preloader.style.visibility = 'hidden';
-            }, 600);
+                document.getElementById('hero-content').classList.add('active');
+                setTimeout(() => { preloader.remove(); }, 400);
+            }, 300); 
         });
 
-        // 3. Mobile Menu Toggle
+        // 3. Individual Property WA Generator
+        function openPropertyWA(propertyName) {
+            const message = `Hi Shine Native Properties, I am interested in the "${propertyName}". Please share more details, pricing, and availability.`;
+            window.open(`https://wa.me/917574002531?text=${encodeURIComponent(message)}`, '_blank');
+        }
+
+        // 4. Form Submit handler -> route to WhatsApp
+        const enquiryForm = document.getElementById('property-enquiry-form');
+        if(enquiryForm) {
+            enquiryForm.addEventListener('submit', (e) => {
+                e.preventDefault(); // Prevent page reload
+                
+                const name = document.getElementById('eq-name').value;
+                const phone = document.getElementById('eq-phone').value;
+                const type = document.getElementById('eq-type').value;
+                const reqMessage = document.getElementById('eq-message').value;
+
+                let waMessage = `*New Property Enquiry*\n\n`;
+                waMessage += `*Name:* ${name}\n`;
+                waMessage += `*Phone:* ${phone}\n`;
+                waMessage += `*Interest:* ${type}\n`;
+                if(reqMessage) {
+                    waMessage += `*Message:* ${reqMessage}\n`;
+                }
+                waMessage += `\nI would like to know more about the 25 properties you have listed.`;
+
+                window.open(`https://wa.me/917574002531?text=${encodeURIComponent(waMessage)}`, '_blank');
+            });
+        }
+
+        // 5. Mobile Animated Menu Logic
         const mobileBtn = document.getElementById('mobile-menu-btn');
+        const closeBtn = document.getElementById('close-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
+        const mobileOverlay = document.getElementById('mobile-overlay');
         const mobileLinks = document.querySelectorAll('.mobile-link');
 
-        mobileBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-
-        mobileLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-            });
-        });
-
-        // 4. WhatsApp Form Submission
-        document.getElementById('wa-enquiry-form').addEventListener('submit', function(e) {
-            e.preventDefault();
+        function toggleMenu() {
+            const isOpen = !mobileMenu.classList.contains('translate-x-full');
             
-            const name = document.getElementById('form-name').value;
-            const phone = document.getElementById('form-phone').value;
-            const type = document.getElementById('form-type').value;
-            const msg = document.getElementById('form-msg').value;
-            
-            // Format WhatsApp Message
-            const waNumber = "917574002531";
-            let finalMessage = `*New Enquiry from Website*%0A%0A`;
-            finalMessage += `*Name:* ${name}%0A`;
-            finalMessage += `*Phone:* ${phone}%0A`;
-            finalMessage += `*Requirement:* ${type}%0A`;
-            finalMessage += `*Message:* ${msg}`;
-            
-            // Open WA link
-            window.open(`https://wa.me/${waNumber}?text=${finalMessage}`, '_blank');
-        });
-
-        // 5. Generate 25 Properties Dynamically
-        // Using high quality real estate images from Unsplash.
-        const propertyTypes = ["Villa", "Apartment", "Commercial", "Plot"];
-        const propertyBases = [
-            { img: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600&q=80", title: "Royal Oak Villa", type: "Villa", price: "₹ 3.5 Cr" },
-            { img: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=600&q=80", title: "Skyline Premium Apartment", type: "Apartment", price: "₹ 1.2 Cr" },
-            { img: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=80", title: "Emerald Estate Mansion", type: "Villa", price: "₹ 5.0 Cr" },
-            { img: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=600&q=80", title: "Urban Loft Residency", type: "Apartment", price: "₹ 85 Lacs" },
-            { img: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&q=80", title: "Prime Business Hub", type: "Commercial", price: "₹ 2.1 Cr" },
-            { img: "https://images.unsplash.com/photo-1600607686527-6fb886090705?w=600&q=80", title: "Lakeview Independent House", type: "Villa", price: "₹ 2.8 Cr" },
-            { img: "https://images.unsplash.com/photo-1502672260266-1c1de2d9d000?w=600&q=80", title: "Sunset Valley Plot", type: "Plot", price: "₹ 45 Lacs" },
-            { img: "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=600&q=80", title: "Pinecrest Luxury Villa", type: "Villa", price: "₹ 4.2 Cr" }
-        ];
-
-        const generateProperties = () => {
-            const grid = document.getElementById('property-grid');
-            let htmlContent = '';
-
-            for(let i = 1; i <= 25; i++) {
-                // Pick a random base to generate variety but ensure 25 exact items
-                const base = propertyBases[i % propertyBases.length];
+            if (isOpen) {
+                mobileMenu.classList.add('translate-x-full');
+                mobileOverlay.classList.remove('opacity-100');
+                mobileOverlay.classList.add('opacity-0', 'pointer-events-none');
                 
-                // Slight variation in stats
-                const beds = base.type === 'Plot' || base.type === 'Commercial' ? '-' : (Math.floor(Math.random() * 3) + 2);
-                const baths = base.type === 'Plot' || base.type === 'Commercial' ? '-' : (beds - 1 + Math.floor(Math.random() * 2));
-                const sqft = Math.floor(Math.random() * 2000) + 1200;
-                
-                // Format specific WhatsApp message for this property
-                const propTitle = `${base.title} ${i}`;
-                const waMessage = `Hello Shine Native Properties, I am interested in Property ID #${i}: ${propTitle} listed for ${base.price}. Please share more details.`;
-                const encodedMsg = encodeURIComponent(waMessage);
-                const waLink = `https://wa.me/917574002531?text=${encodedMsg}`;
-
-                htmlContent += `
-                <div class="property-card flex flex-col">
-                    <div class="property-img-wrap h-64 relative">
-                        <img src="${base.img}" alt="${propTitle}" class="property-img w-full h-full object-cover">
-                        <div class="absolute top-4 left-4 bg-primary text-white text-xs font-bold px-3 py-1.5 rounded-md shadow-md uppercase tracking-wide">
-                            ${base.type}
-                        </div>
-                        <div class="absolute bottom-4 right-4 bg-accent text-primary-dark font-bold px-3 py-1 rounded-md shadow-md">
-                            ${base.price}
-                        </div>
-                    </div>
-                    
-                    <div class="p-6 flex flex-col flex-grow">
-                        <p class="text-xs text-gray-500 mb-1">Property ID: SNP-${1000 + i}</p>
-                        <h3 class="text-xl font-serif font-bold text-primary mb-3">${propTitle}</h3>
-                        
-                        <div class="flex items-center justify-between text-sm text-gray-600 mb-6 border-t border-b border-gray-100 py-3">
-                            <div class="flex items-center gap-1.5" title="Bedrooms">
-                                <i data-lucide="bed-double" class="w-4 h-4 text-accent"></i> 
-                                <span class="font-medium">${beds}</span>
-                            </div>
-                            <div class="flex items-center gap-1.5" title="Bathrooms">
-                                <i data-lucide="bath" class="w-4 h-4 text-accent"></i> 
-                                <span class="font-medium">${baths}</span>
-                            </div>
-                            <div class="flex items-center gap-1.5" title="Square Footage">
-                                <i data-lucide="maximize" class="w-4 h-4 text-accent"></i> 
-                                <span class="font-medium">${sqft} sq.ft</span>
-                            </div>
-                        </div>
-
-                        <div class="mt-auto">
-                            <a href="${waLink}" target="_blank" class="w-full bg-[#E8F8EE] hover:bg-[#D1F2DF] text-whatsapp font-semibold border border-green-200 py-3 rounded-xl transition-colors duration-300 flex items-center justify-center gap-2">
-                                <i data-lucide="message-circle" class="w-5 h-5"></i> Enquire on WhatsApp
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                `;
-            }
-
-            grid.innerHTML = htmlContent;
-            // Re-init lucide icons for newly added HTML
-            lucide.createIcons();
-        };
-
-        // Initialize Property Generation
-        generateProperties();
-
-        // 6. Header Scroll Effect
-        window.addEventListener('scroll', () => {
-            const navbar = document.getElementById('navbar');
-            if (window.scrollY > 20) {
-                navbar.classList.add('shadow-md');
-                navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+                mobileLinks.forEach(link => {
+                    link.classList.remove('opacity-100', 'translate-x-0');
+                    link.classList.add('opacity-0', 'translate-x-4');
+                });
             } else {
-                navbar.classList.remove('shadow-md');
-                navbar.style.background = 'rgba(255, 255, 255, 0.9)';
+                mobileMenu.classList.remove('translate-x-full');
+                mobileOverlay.classList.remove('opacity-0', 'pointer-events-none');
+                mobileOverlay.classList.add('opacity-100');
+                
+                mobileLinks.forEach((link, index) => {
+                    setTimeout(() => {
+                        link.classList.remove('opacity-0', 'translate-x-4');
+                        link.classList.add('opacity-100', 'translate-x-0');
+                    }, 100 + (index * 70));
+                });
+            }
+        }
+
+        mobileBtn.addEventListener('click', toggleMenu);
+        closeBtn.addEventListener('click', toggleMenu);
+        mobileOverlay.addEventListener('click', toggleMenu);
+        
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', toggleMenu);
+        });
+
+        // 6. Scroll Reveal Animation
+        const observerOptions = { threshold: 0.1 };
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(element => {
+            observer.observe(element);
+        });
+
+        // 7. Header background on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('shadow-md');
+                header.style.background = 'rgba(255, 255, 255, 0.9)';
+            } else {
+                header.classList.remove('shadow-md');
+                header.style.background = 'rgba(255, 255, 255, 0.7)';
             }
         });
     </script>
